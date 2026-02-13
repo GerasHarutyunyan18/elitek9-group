@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Training Blogs | Elite K9 Group</title>
+    <meta name="description"
+        content="Expert tips, training guides, and news from Elite K9 Group. Learn about dog behavior, puppy raising, and family protection.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar-new">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo-new">
+                <img src="assets/images/logo-k9-new-v02.png" alt="Elite K9 Group Logo" class="logo-image">
+            </a>
+            <ul class="nav-links-new">
+                <li><a href="index.html">Home</a></li>
+                <li class="has-dropdown"><a href="training.html">Training</a></li>
+                <li class="has-dropdown"><a href="services.html">Services</a></li>
+                <li class="has-dropdown"><a href="available-dogs.html">Available Dogs</a></li>
+                <li><a href="future-breeding.html">Future Breeding</a></li>
+                <li><a href="blog.html" class="active">Blogs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="navbar-right">
+                <div class="language-switcher">
+                    <a href="#" class="lang-btn active" data-lang="en"><i class="fas fa-globe"></i><span>EN</span></a>
+                    <span class="lang-divider">|</span>
+                    <a href="#" class="lang-btn" data-lang="es"><span>ES</span></a>
+                </div>
+                <div class="social-icons-nav">
+                    <a href="https://www.instagram.com/elite_k9_group/" target="_blank" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+                <a href="tel:+18183573797" class="phone-number-nav">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>818-357-3797</span>
+                </a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header text-center">
+        <div class="container">
+            <h1>K9 Insights & News</h1>
+            <p>Training tips, breed knowledge, and success stories.</p>
+        </div>
+    </header>
+
+    <div class="container section-padding">
+
+        <!-- Tab Navigation -->
+        <div class="media-tabs">
+            <button class="tab-btn active" onclick="openTab('blog')">Blogs</button>
+            <button class="tab-btn" onclick="openTab('videos')">Videos</button>
+            <button class="tab-btn" onclick="openTab('about')">About Us</button>
+            <button class="tab-btn" onclick="openTab('news')">Our Passion</button>
+            <button class="tab-btn" onclick="openTab('socials')">Social Media</button>
+        </div>
+
+        <!-- 1. Blog Content -->
+        <div id="blog" class="tab-content active">
+            <div class="blog-grid">
+                <!-- Article 1 -->
+                <article class="blog-card">
+                    <div class="blog-image"><img src="assets/images/blog1.jpg" alt="" srcset=""
+                            style="width: 100%; height: 100%;">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Puppy Training</span>
+                        <h3>The First 48 Hours: Bringing Puppy Home</h3>
+                        <p>Essential steps to ensure your new puppy settles in calmly and safely.</p>
+                        <a href="blog-post-1.html" class="read-more">Read Full Article →</a>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="blog-card">
+                    <div class="blog-image"><img src="assets/images/blog2.jpg" alt="" srcset=""
+                            style="width: 100%; height: 100%;"></div>
+                    <div class="blog-content">
+                        <span class="blog-category">Behavior</span>
+                        <h3>Understanding Dog Body Language</h3>
+                        <p>How to read subtle signs of stress, happiness, and aggression in your dog.</p>
+                        <a href="blog-post-2.html" class="read-more">Read Full Article →</a>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="blog-card">
+                    <div class="blog-image"><img src="assets/images/blog3.jpg" alt="" srcset=""
+                            style="width: 100%; height: 100%;"></div>
+                    <div class="blog-content">
+                        <span class="blog-category">Protection Work</span>
+                        <h3>Myth: Protection Dogs Are Aggressive</h3>
+                        <p>Why a true protection dog is the safest dog you can have around your family.</p>
+                        <a href="blog-post-3.html" class="read-more">Read Full Article →</a>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="blog-card">
+                    <div class="blog-image"><img src="assets/images/blog4.jpg" alt="" srcset=""
+                            style="width: 100%; height: 100%;"></div>
+                    <div class="blog-content">
+                        <span class="blog-category">Health & Care</span>
+                        <h3>Nutrition for Working Dogs</h3>
+                        <p>Fueling your athlete: what to feed for optimal performance and health.</p>
+                        <a href="blog-post-4.html" class="read-more">Read Full Article →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- 2. Videos Content -->
+        <div id="videos" class="tab-content">
+            <div class="video-grid">
+                <!-- Video 1 -->
+                <div class="video-card">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/IGGcFbW__XI"
+                        title="Dog Training Basics" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <h3>Basic Obedience Training</h3>
+                </div>
+                <!-- Video 2 -->
+                <div class="video-card">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/3dMKR5i9iNQ"
+                        title="Puppy Training" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <h3>Puppy Training Fundamentals</h3>
+                </div>
+                <!-- Video 3 -->
+                <div class="video-card">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/qg0XAsC5xBQ"
+                        title="Protection Dog Training" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <h3>Protection Dog Training</h3>
+                </div>
+                <!-- Video 4 -->
+                <div class="video-card">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/UJulTzp4Lw4"
+                        title="Advanced Off-Leash Training" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <h3>Off-Leash Training</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. About Us Content -->
+        <div id="about" class="tab-content">
+            <div class="about-text" style="text-align: center; max-width: 900px; margin: 0 auto;">
+                <h2>Contact Elite K9</h2>
+                <p style="font-size: 1.15rem; line-height: 1.8; margin: 40px 0;">
+                    Contact Elite K9 for trusted protection dog training, obedience programs, and information on
+                    available dogs.
+                    Whether you're seeking a family protector, advanced obedience training, or details about upcoming
+                    breedings,
+                    our team is here to help.
+                </p>
+
+                <div style="margin: 50px 0; padding: 40px; background: #f8f8f8; border-radius: 12px;">
+                    <h3 style="margin-bottom: 30px; color: var(--primary-orange);">Get in Touch</h3>
+
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: left;">
+                        <!-- Address -->
+                        <div>
+                            <h4 style="color: var(--text-dark); margin-bottom: 15px;">
+                                <i class="fas fa-map-marker-alt"
+                                    style="color: var(--primary-orange); margin-right: 10px;"></i>
+                                Address
+                            </h4>
+                            <p style="color: var(--text-light); line-height: 1.6;">
+                                13238 Riverside <br> Dr Sherman Oaks, CA 91423<br>
+
+                                (Near Macy's Mall Los Angeles)
+                            </p>
+                        </div>
+
+                        <!-- Contact -->
+                        <div>
+                            <h4 style="color: var(--text-dark); margin-bottom: 15px;">
+                                <i class="fas fa-phone-alt"
+                                    style="color: var(--primary-orange); margin-right: 10px;"></i>
+                                Contact
+                            </h4>
+                            <p style="color: var(--text-light); line-height: 1.6;">
+                                <a href="tel:+18183573797"
+                                    style="color: var(--text-light); text-decoration: none;">(818) 357-3797</a><br>
+                                <a href="mailto:info@elitek9group.com"
+                                    style="color: var(--text-light); text-decoration: none;">info@elitek9group.com</a>
+                            </p>
+                        </div>
+
+                        <!-- Hours -->
+                        <div>
+                            <h4 style="color: var(--text-dark); margin-bottom: 15px;">
+                                <i class="fas fa-clock" style="color: var(--primary-orange); margin-right: 10px;"></i>
+                                Opening Hours
+                            </h4>
+                            <p style="color: var(--text-light); line-height: 1.6;">
+                                Mo-Fr: 8 am – 7 pm<br>
+                                Sa: 8 am – 7 pm<br>
+                                Su: 8 am – 4 pm
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Our Passion Content -->
+        <div id="news" class="tab-content">
+            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <h2 style="margin-bottom: 30px;">Our Passion</h2>
+
+                <!-- Video -->
+                <div
+                    style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-bottom: 40px;">
+                    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px;"
+                        src="https://www.youtube.com/embed/aonVpIF8hAw" title="Elite K9 Group - Our Passion"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <!-- Passionate Text -->
+                <div class="passion-text" style="text-align: left; font-size: 1.15rem; line-height: 1.8; color: #444;">
+                    <p style="margin-bottom: 25px;">
+                        At Elite K9 Group, training dogs is not just what we do—it's who we are. Our deep love for
+                        animals fuels our commitment to excellence in <strong>Dog Training</strong> and
+                        <strong>Protection Work</strong>. We believe that every <strong>German Shepherd</strong> and
+                        <strong>Belgian Malinois</strong> deserves to be understood, respected, and guided with patience
+                        and precision.
+                    </p>
+                    <p style="margin-bottom: 25px;">
+                        Serving <strong>Los Angeles, CA</strong> and surrounding areas like Sherman Oaks and Beverly
+                        Hills, our expert <strong>K9 Trainer</strong> team pours their heart into crafting the perfect
+                        <strong>Family Protection Dog</strong>. We don't just build obedience; we build trust. Whether
+                        it's <strong>Service Dog Training</strong> or rehabilitation for aggressive behaviors, we
+                        approach every challenge with compassion and dedication.
+                    </p>
+                    <p style="margin-bottom: 40px;">
+                        Seeing a dog transform into a confident, loving guardian is our greatest reward. We do this work
+                        because we love it, and we treat every dog as if they were our own family member.
+                    </p>
+                </div>
+
+                <!-- Trainers Photo Placeholder (16:9) -->
+                <div class="trainers-photo-placeholder"
+                    style="width: 100%; aspect-ratio: 16/9; background-color: #eee; border-radius: 12px; overflow: hidden; position: relative; margin-top: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+                    <img src="assets/images/Voskan.jpg" alt="Elite K9 Trainers with Dogs"
+                        style="width: 100%; height: 100%; object-fit: cover;"
+                        onerror="this.src='https://placehold.co/1600x900?text=Trainers+With+Dogs+Photo'">
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Social Media Content - Instagram Only -->
+        <div id="socials" class="tab-content">
+            <div class="social-hub">
+                <h2>Follow Us on Instagram</h2>
+                <p>See our daily training sessions, puppy updates, success stories, and behind-the-scenes content.</p>
+                <div class="social-grid" style="justify-content: center;">
+                    <a href="https://www.instagram.com/elite_k9_group/" target="_blank" class="social-card"
+                        style="max-width: 400px;">
+                        <i class="fab fa-instagram social-icon" style="font-size: 4rem; color: #E4405F;"></i>
+                        <span class="social-handle" style="font-size: 1.5rem; margin-top: 20px;">@elite_k9_group</span>
+                        <span style="margin-top: 10px;">Follow for daily training tips, puppy updates & success
+                            stories</span>
+                        <span style="margin-top: 15px; color: var(--primary-orange); font-weight: 600;">Tap to Follow
+                            →</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script to handle tabs -->
+    <script>
+        function openTab(tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(tabName).classList.add('active');
+
+            const activeBtn = Array.from(buttons).find(btn => btn.getAttribute('onclick').includes(tabName));
+            if (activeBtn) activeBtn.classList.add('active');
+        }
+
+
+    </script>
+
+
+    <!-- Footer -->
+    <footer id="contact" class="footer-new">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">
+                    <img src="assets/images/logo-k9-new-v02.png" alt="Elite K9 Group Logo" class="footer-logo-image">
+                </a>
+                <div class="footer-contact-info">
+                    <a href="tel:+18183573797" class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>(818) 357-3797</span>
+                    </a>
+                    <a href="mailto:info@elitek9group.com" class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@elitek9group.com</span>
+                    </a>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>13238 Riverside <br>Dr Sherman Oaks, CA 91423<br>(Near Macy's Mall Los Angeles)</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Mon - Fri: 9am - 5pm<br>Sat - Sun: 9am - 4pm</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="available-dogs.html">Dogs for Sale</a></li>
+                    <li><a href="future-breeding.html">Future Breeding</a></li>
+                    <li><a href="blog.html">Blogs</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-locations">
+                <h4>Service Areas</h4>
+                <div class="locations-grid">
+                    <div class="location-col">
+                        <a href="#">Glendale</a>
+                        <a href="#">Los Angeles</a>
+                        <span style="display: block; padding: 5px 0; color: #999;">...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Elite K9 Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Phone Button -->
+    <a href="tel:+18183573797" class="float-phone-btn" aria-label="Call Now">
+        <i class="fas fa-phone-alt"></i>
+        <span class="btn-text">Call Us Now</span>
+    </a>
+
+    <style>
+        .float-phone-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(135deg, #25d366, #128C7E);
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: pulse-green 2s infinite;
+        }
+
+        .float-phone-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.8);
+        }
+
+        .float-phone-btn i {
+            animation: shake-phone 3s infinite;
+        }
+
+        .btn-text {
+            position: absolute;
+            right: 85px;
+            /* Position to the left */
+            background: white;
+            color: #333;
+            padding: 10px 18px;
+            border-radius: 25px;
+            /* Bubble shape */
+            font-size: 15px;
+            font-weight: bold;
+            white-space: nowrap;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+
+            /* Hidden by default with transform for pop effect */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(20px) scale(0.5);
+            transform-origin: right center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            /* Bouncy transition */
+            pointer-events: none;
+        }
+
+        /* Show on hover */
+        .float-phone-btn:hover .btn-text {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0) scale(1);
+        }
+
+        /* Bubble Arrow */
+        .btn-text::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 9px solid white;
+        }
+
+        @keyframes pulse-green {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        @keyframes shake-phone {
+
+            0%,
+            90%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            92% {
+                transform: rotate(10deg);
+            }
+
+            94% {
+                transform: rotate(-10deg);
+            }
+
+            96% {
+                transform: rotate(10deg);
+            }
+
+            98% {
+                transform: rotate(-10deg);
+            }
+        }
+    </style>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
