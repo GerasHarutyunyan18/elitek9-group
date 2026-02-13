@@ -2142,6 +2142,10 @@ footer {
         padding: 0 10px;
     }
 
+    .tab-btn::after {
+        bottom: 3px !important;
+    }
+
     .dog-slider-wrapper {
         padding: 0 40px;
     }
