@@ -2799,6 +2799,7 @@ body {
     display: flex;
     align-items: center;
     gap: 5px;
+    white-space: nowrap;
 }
 
 .nav-links-new a:hover,
@@ -2967,6 +2968,20 @@ body {
 
     .lang-btn {
         font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 1200px) and (min-width: 993px) {
+    .nav-links-new {
+        gap: 15px;
+    }
+
+    .navbar-container {
+        gap: 20px;
+    }
+
+    .nav-links-new a {
+        font-size: 0.8rem;
     }
 }
 
