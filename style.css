@@ -1989,16 +1989,13 @@ footer {
 
 /* Slide Item */
 .dog-slide-item {
-    flex: 0 0 100%;
-    /* Single item width */
+    flex: 0 0 280px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     transition: transform 0.3s ease;
     text-decoration: none;
-    padding: 0 10px;
-    /* Prevent edge touching */
 }
 
 .dog-slide-item:hover {
@@ -2007,15 +2004,12 @@ footer {
 
 .dog-slide-image {
     width: 100%;
-    max-width: 450px;
-    /* Restrict width on desktop */
-    height: 450px;
-    /* Taller for single view */
+    height: 380px;
     overflow: hidden;
     margin-bottom: 25px;
     border-radius: 4px;
     position: relative;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
 .dog-slide-image img {
@@ -2122,9 +2116,26 @@ footer {
     box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
 }
 
-/* Responsive adjustments */
-/* Multi-column grid removed for Single Item Focus */
-/* @media (min-width: 1200px) ... (max-width: 991px) removed */
+@media (min-width: 1200px) {
+    .dog-slide-item {
+        flex: 0 0 calc(20% - 24px);
+        /* 5 items with 30px gap */
+    }
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+    .dog-slide-item {
+        flex: 0 0 calc(33.333% - 20px);
+        /* 3 items */
+    }
+}
+
+@media (max-width: 991px) and (min-width: 769px) {
+    .dog-slide-item {
+        flex: 0 0 calc(50% - 15px);
+        /* 2 items */
+    }
+}
 
 @media (max-width: 768px) {
     .container-fluid {
@@ -2135,17 +2146,25 @@ footer {
         padding: 0 40px;
     }
 
+    .dog-slider-track {
+        gap: 0;
+    }
+
     .dog-slide-item {
         flex: 0 0 100%;
+        padding: 0 10px;
+    }
+
+    .dog-slide-image {
+        max-width: 450px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 320px;
     }
 
     /* Single card */
     .slider-arrow {
         font-size: 2rem;
-    }
-
-    .dog-slide-image {
-        height: 320px;
     }
 }
 
