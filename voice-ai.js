@@ -24,8 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!btn || !chat) return; // Exit if elements not found
 
-    // Replace microphone icon with dog image
-    btn.innerHTML = '<img src="assets/images/grok-video-51f047fb-90ae-435d-94a5-96b3ebbfd7bb-(1).gif" alt="AI Dog" style="width: 100%; height: 100%; object-fit: cover;">';
+    // Replace microphone icon with dog image and add hover text
+    btn.innerHTML = `
+        <img src="assets/images/grok-video-51f047fb-90ae-435d-94a5-96b3ebbfd7bb-(1).gif" alt="AI Dog" style="width: 100%; height: 100%; object-fit: cover;">
+        <span class="btn-text">Talk to me</span>
+    `;
 
     let turnCount = 0;
     let isListening = false;
