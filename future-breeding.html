@@ -32,7 +32,7 @@
                 <li class="has-dropdown"><a href="available-dogs.html">Available Dogs</a></li>
                 <li><a href="future-breeding.html" class="active">Future Breeding</a></li>
                 <li><a href="blog.html">Blogs</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="navbar-right">
                 <div class="language-switcher">
@@ -162,7 +162,7 @@
                 <h3>Interested in our Breeding Services?</h3>
                 <p style="margin-bottom: 20px; color: var(--text-light);">We offer stud services and puppy reservations.
                     Contact us to discuss your goals.</p>
-                <a href="#contact" class="btn-primary">Contact Breeding Manager</a>
+                <a href="contact.html" class="btn-primary">Contact Breeding Manager</a>
             </div>
 
         </div>
@@ -203,7 +203,7 @@
                     <li><a href="available-dogs.html">Dogs for Sale</a></li>
                     <li><a href="future-breeding.html">Future Breeding</a></li>
                     <li><a href="blog.html">Blogs</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-locations">
@@ -212,6 +212,14 @@
                     <div class="location-col">
                         <a href="#">Glendale</a>
                         <a href="#">Los Angeles</a>
+                        <a href="#">Burbank</a>
+                        <a href="#">West Hollywood</a>
+                        <a href="#">Beverly Hills</a>
+                        <a href="#">Studio City</a>
+                        <a href="#">Santa Monica</a>
+                        <a href="#">Calabasas</a>
+                        <a href="#">Pasadena</a>
+                        <a href="#">Malibu</a>
                         <span style="display: block; padding: 5px 0; color: #999;">...</span>
                     </div>
                 </div>
@@ -344,6 +352,18 @@
         }
     </style>
 
+    <!-- Voice AI -->
+    <button id="voiceBtn" aria-label="Talk to AI">
+        <i class="fas fa-microphone"></i>
+    </button>
+    <div id="chat-widget" style="display: none;">
+        <div id="chat-header">
+            <span>K9 Assistant</span>
+            <button id="close-chat-btn">&times;</button>
+        </div>
+        <div id="chat"></div>
+    </div>
+    <script src="voice-ai.js"></script>
     <script src="script.js"></script>
 </body>
 

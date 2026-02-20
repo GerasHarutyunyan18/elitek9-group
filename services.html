@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
@@ -41,7 +41,7 @@
                 </li>
                 <li><a href="future-breeding.html">Future Breeding</a></li>
                 <li><a href="blog.html">Blogs</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
 
             <!-- Right Section: Social Icons & Phone -->
@@ -109,7 +109,7 @@
                         <li><i class="fas fa-check"></i> Gain Total Control</li>
                         <li><i class="fas fa-check"></i> Expert K9 Solutions</li>
                     </ul>
-                    <a href="#contact" class="btn-primary full-width">Start Your Transformation</a>
+                    <a href="contact.html" class="btn-primary full-width">Start Your Transformation</a>
                 </div>
 
                 <!-- Advanced Obedience -->
@@ -123,7 +123,7 @@
                         <li><i class="fas fa-dog"></i> Public Access Manners</li>
                         <li><i class="fas fa-dog"></i> Motion Exercises (Sit/Down in Motion)</li>
                     </ul>
-                    <a href="#contact" class="btn-primary full-width">Learn More</a>
+                    <a href="contact.html" class="btn-primary full-width">Learn More</a>
                 </div>
 
                 <!-- Personal Protection -->
@@ -139,7 +139,7 @@
                         <li><i class="fas fa-shield-alt"></i> Safe Family Integration</li>
                         <li><i class="fas fa-shield-alt"></i> Elite Service Dog Training</li>
                     </ul>
-                    <a href="#contact" class="btn-secondary full-width">Secure Your Family Today</a>
+                    <a href="contact.html" class="btn-secondary full-width">Secure Your Family Today</a>
                 </div>
 
                 <!-- Board & Train -->
@@ -153,7 +153,7 @@
                         <li><i class="fas fa-home"></i> Real World Exposure</li>
                         <li><i class="fas fa-home"></i> Lifetime Support</li>
                     </ul>
-                    <a href="#contact" class="btn-primary full-width">See Board & Train Options</a>
+                    <a href="contact.html" class="btn-primary full-width">See Board & Train Options</a>
                 </div>
 
                 <!-- Puppy Development -->
@@ -167,7 +167,7 @@
                         <li><i class="fas fa-paw"></i> Socialization (People/Dogs)</li>
                         <li><i class="fas fa-paw"></i> Crate & Potty Success</li>
                     </ul>
-                    <a href="#contact" class="btn-primary full-width">Start Right Today</a>
+                    <a href="contact.html" class="btn-primary full-width">Start Right Today</a>
                 </div>
 
                 <!-- Sport Training -->
@@ -186,7 +186,7 @@
                                 href="https://knpv.nl/ords/r/knpv/ledenweb/knpv-home?tz=4:00" target="_blank"
                                 style="color: inherit; text-decoration: underline;">Official KNPV Website</a></li>
                     </ul>
-                    <a href="#contact" class="btn-secondary full-width">Prepare Your Dog</a>
+                    <a href="contact.html" class="btn-secondary full-width">Prepare Your Dog</a>
                 </div>
 
             </div>
@@ -231,7 +231,7 @@
                     <li><a href="available-dogs.html">Dogs for Sale</a></li>
                     <li><a href="future-breeding.html">Future Breeding</a></li>
                     <li><a href="blog.html">Blogs</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
 
@@ -242,6 +242,14 @@
                     <div class="location-col">
                         <a href="#">Glendale</a>
                         <a href="#">Los Angeles</a>
+                        <a href="#">Burbank</a>
+                        <a href="#">West Hollywood</a>
+                        <a href="#">Beverly Hills</a>
+                        <a href="#">Studio City</a>
+                        <a href="#">Santa Monica</a>
+                        <a href="#">Calabasas</a>
+                        <a href="#">Pasadena</a>
+                        <a href="#">Malibu</a>
                         <span style="display: block; padding: 5px 0; color: #999;">...</span>
                     </div>
                 </div>
@@ -376,6 +384,18 @@
         }
     </style>
 
+    <!-- Voice AI -->
+    <button id="voiceBtn" aria-label="Talk to AI">
+        <i class="fas fa-microphone"></i>
+    </button>
+    <div id="chat-widget" style="display: none;">
+        <div id="chat-header">
+            <span>K9 Assistant</span>
+            <button id="close-chat-btn">&times;</button>
+        </div>
+        <div id="chat"></div>
+    </div>
+    <script src="voice-ai.js"></script>
     <script src="script.js"></script>
 </body>
 

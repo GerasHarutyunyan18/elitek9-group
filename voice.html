@@ -1,0 +1,160 @@
+<button id="voiceBtn">🎤 Talk to us</button>
+<div id="chat"></div>
+<script>
+    /* =========================
+       BASIC SETUP
+    ========================= */
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.continuous = false;
+
+    const chat = document.getElementById("chat");
+    const btn = document.getElementById("voiceBtn");
+
+    let turnCount = 0;
+    let isListening = false;
+
+    /* =========================
+       SPEAK FUNCTION (FIXED)
+    ========================= */
+
+    function speak(text, onEndCallback) {
+        const msg = new SpeechSynthesisUtterance(text);
+        msg.lang = "en-US";
+        msg.rate = 1;
+        msg.pitch = 1;
+
+        msg.onend = () => {
+            if (onEndCallback) onEndCallback();
+        };
+
+        speechSynthesis.cancel(); // important
+        speechSynthesis.speak(msg);
+    }
+
+    /* =========================
+       TIME CHECK
+    ========================= */
+
+    function isAfterHours() {
+        const now = new Date();
+        const hour = now.getHours();
+        return hour < 9 || hour >= 18;
+    }
+
+    /* =========================
+       UI HELPERS
+    ========================= */
+
+    function addMessage(sender, text) {
+        chat.innerHTML += `<p><strong>${sender}:</strong> ${text}</p>`;
+        chat.scrollTop = chat.scrollHeight;
+    }
+
+    /* =========================
+       INTENT DETECTION
+    ========================= */
+
+    function detectIntent(text) {
+        text = text.toLowerCase();
+
+        if (text.match(/aggressive|aggression|bite|biting|growl|reactive|attack/)) {
+            return "aggression";
+        }
+
+        if (text.match(/price|cost|how much|pricing/)) {
+            return "pricing";
+        }
+
+        if (text.match(/how do you|method|approach|train/)) {
+            return "method";
+        }
+
+        if (text.match(/kids|children|family|safe|home/)) {
+            return "family";
+        }
+
+        if (text.match(/online|in person|at home|location/)) {
+            return "location";
+        }
+
+        return "unknown";
+    }
+
+    /* =========================
+       AI RESPONSE LOGIC
+    ========================= */
+
+    function getAIResponse(userText) {
+        turnCount++;
+        const intent = detectIntent(userText);
+
+        if (isAfterHours()) {
+            return "Thanks for reaching out. We’re currently closed, but I can help you get started. Please leave your name and phone number, and we’ll contact you as soon as we’re open.";
+        }
+
+        switch (intent) {
+            case "aggression":
+                return "I understand. Aggressive behavior can be very stressful for families. When does this usually happen — at home, on walks, or around new people?";
+
+            case "pricing":
+                return "Pricing depends on your dog’s needs. We start with a free consultation. Would you like us to contact you to go over the details?";
+
+            case "method":
+                return "We focus on clear communication, structure, and consistency. Every dog and family is different.";
+
+            case "family":
+                return "Safety at home is always the priority. We help families create calm, reliable behavior.";
+
+            case "location":
+                return "That’s something we can discuss during a free consultation.";
+
+            default:
+                if (turnCount >= 3) {
+                    return "If you’d like, you can leave your name and phone number, and we’ll contact you to discuss the next steps.";
+                }
+                return "Thanks for sharing. Can you tell me a bit more?";
+        }
+    }
+
+    /* =========================
+       LISTEN FUNCTION
+    ========================= */
+
+    function startListening() {
+        if (isListening) return;
+        isListening = true;
+        recognition.start();
+    }
+
+    /* =========================
+       VOICE FLOW (FIXED)
+    ========================= */
+
+    btn.onclick = () => {
+        const greeting = "Hi! You can speak freely. Tell me what’s going on with your dog.";
+        addMessage("AI", greeting);
+        speak(greeting, startListening);
+    };
+
+    recognition.onresult = (event) => {
+        isListening = false;
+
+        const userText = event.results[0][0].transcript;
+        addMessage("You", userText);
+
+        const response = getAIResponse(userText);
+        addMessage("AI", response);
+
+        speak(response, startListening);
+    };
+
+    recognition.onerror = () => {
+        isListening = false;
+        speak("Sorry, I didn’t catch that. Please try again.", startListening);
+    };
+</script>

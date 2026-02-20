@@ -156,22 +156,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroContent = [
         {
             // Slide 1: Aggression & Behavior Modification (Pain Point: Fear/Chaos -> Solution: Control)
-            title: "TRANSFORM<br>AGGRESSIVE<br>BEHAVIOR<br>INTO TRUST",
-            description: "Is your dog's aggression controlling your life? Our expert K9 trainer specializes in training for aggressive dogs. We turn reactivity into reliability through proven German Shepherd and Belgian Malinois training methods. Reclaim your peace of mind today.",
-            ctaText: "FIX AGGRESSION NOW",
+            title: "TURN<br>AGGRESSIVE<br>BEHAVIOR<br>INTO CALM,",
+            description: "Tired of your dog's out-of-control behavior? Our trainers help dogs chill out, stop reacting, and become the reliable buddy you’ve always wanted. Let’s get your dog and your life back on track—start today!",
+            ctaText: "GET SUPPORT TODAY",
             ctaLink: "training.html"
         },
         {
             // Slide 2: Family Protection & Obedience (Desire: Safety/Harmony)
-            title: "<br>SERVICE DOG<br>TRAINING<br>FOR FAMILIES",
-            description: "Imagine a dog that is a gentle guardian for your children and a fierce protector of your home. Our board and train dogs near me programs build confidence and obedience. Experience the ultimate dog boarding and training near me.",
+            title: "<br>BOARD & TRAIN<br>PROGRAMS",
+            description: "Imagine a dog that’s calm, reliable, and always looking out for your family. Our in-home and intensive training programs help dogs build confidence, master obedience, and become the trusted companion every household needs. Start your journey to a safer, happier home today",
             ctaText: "Choose Training Program",
             ctaLink: "services.html"
         },
         {
             // Slide 3: Elite Dogs for Sale (Desire: Prestige/Security)
-            title: "ELITE<br>BELGIAN<br>MALINOIS<br>FOR SALE",
-            description: "Don't just buy a dog; invest in a legacy of safety. We offer exclusive trained Belgian Malinois dogs for sale and premium female German Shepherd puppies in Los Angeles CA. Health-tested, temperament-proven, and ready to protect.",
+            title: "ELITE PROTECTION DOGS<br>FOR SALE",
+            description: "Don’t just get a dog—get peace of mind. Our elite protection dogs are trained, tested, and ready to guard your home and family from day one. Smart, loyal, and dependable—find your ultimate family protector in Los Angeles today.",
             ctaText: "FIND YOUR PROTECTOR",
             ctaLink: "available-dogs.html"
         }

@@ -79,6 +79,10 @@ img {
     background-color: var(--bg-light);
 }
 
+.bg-white {
+    background-color: #ffffff !important;
+}
+
 .bg-dark-green {
     background-color: var(--dark-gray) !important;
     color: white !important;
@@ -429,8 +433,26 @@ img {
     }
 }
 
+@keyframes pulse-orange {
+    0% {
+        box-shadow: 0 0 0 0 rgba(249, 112, 15, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(249, 112, 15, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(249, 112, 15, 0);
+    }
+}
+
 .btn-pulse {
     animation: pulse-green 2s infinite;
+}
+
+.btn-pulse-orange {
+    animation: pulse-orange 2.5s infinite;
 }
 
 /* --- About Section --- */
@@ -1880,6 +1902,131 @@ footer {
 
 .reveal-zoom {
     transform: scale(0.9);
+}
+
+/* --- Consultation Form Section --- */
+.consultation-section {
+    background-color: var(--bg-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.consultation-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 60px;
+    border-radius: 40px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
+}
+
+.consultation-section .section-title {
+    font-size: 2.8rem;
+    color: var(--dark-gray);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.consultation-section .section-subtitle {
+    color: var(--text-light);
+    font-size: 1.15rem;
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.consultation-form {
+    margin-top: 50px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--dark-gray);
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 16px 22px;
+    border: 2px solid #f0f0f0;
+    border-radius: 15px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: #fcfcfc;
+    color: var(--text-color);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #aaa;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-orange);
+    background-color: white;
+    box-shadow: 0 8px 20px rgba(249, 112, 15, 0.08);
+}
+
+.form-submit {
+    margin-top: 40px;
+}
+
+.form-submit .btn-primary {
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    max-width: 400px;
+    padding: 18px 40px;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 10px 25px rgba(249, 112, 15, 0.3);
+}
+
+.privacy-note {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: 20px;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .consultation-content {
+        padding: 40px 25px;
+        border-radius: 30px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .consultation-section .section-title {
+        font-size: 2.2rem;
+    }
+
+    .form-submit .btn-primary {
+        max-width: 100%;
+    }
 }
 
 /* Button Shine Effect */
@@ -3656,4 +3803,257 @@ body {
         /* Allow reversing order if needed */
         gap: 30px;
     }
+}
+
+/* Floating Phone Button */
+.float-phone-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 75px;
+    height: 75px;
+    background: linear-gradient(135deg, #25d366, #128C7E);
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    animation: pulse-green 2s infinite;
+}
+
+.float-phone-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.8);
+}
+
+.float-phone-btn i {
+    animation: shake-phone 3s infinite;
+}
+
+.btn-text {
+    position: absolute;
+    right: 85px;
+    /* Position to the left */
+    background: white;
+    color: #333;
+    padding: 10px 18px;
+    border-radius: 25px;
+    /* Bubble shape */
+    font-size: 15px;
+    font-weight: bold;
+    white-space: nowrap;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+
+    /* Hidden by default with transform for pop effect */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(20px) scale(0.5);
+    transform-origin: right center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Bouncy transition */
+    pointer-events: none;
+}
+
+/* Show on hover */
+.float-phone-btn:hover .btn-text {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0) scale(1);
+}
+
+/* Bubble Arrow */
+.btn-text::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 9px solid white;
+}
+
+@keyframes pulse-green {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+@keyframes shake-phone {
+
+    0%,
+    90%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    92% {
+        transform: rotate(10deg);
+    }
+
+    94% {
+        transform: rotate(-10deg);
+    }
+
+    96% {
+        transform: rotate(10deg);
+    }
+
+    98% {
+        transform: rotate(-10deg);
+    }
+}
+
+/* --- Voice AI Button & Chat --- */
+#voiceBtn {
+    position: fixed;
+    bottom: 120px;
+    /* Above the phone button (bottom: 30px + 75px + 15px) */
+    right: 30px;
+    width: 75px;
+    height: 75px;
+    background: linear-gradient(135deg, #f9700f, #d35400);
+    color: #fff;
+    border-radius: 50%;
+    border: none;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 4px 20px rgba(249, 112, 15, 0.6);
+    z-index: 9999;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#voiceBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(249, 112, 15, 0.8);
+}
+
+/* --- Chat Widget --- */
+#chat-widget {
+    position: fixed;
+    bottom: 210px;
+    right: 30px;
+    width: 320px;
+    height: 450px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    display: none;
+    /* Controlled by JS via inline style */
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 9999;
+    border: 2px solid #f9700f;
+    font-family: 'Outfit', sans-serif;
+}
+
+#chat-header {
+    background: #f9700f;
+    color: white;
+    padding: 12px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#close-chat-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+    transition: transform 0.2s;
+}
+
+#close-chat-btn:hover {
+    transform: scale(1.2);
+}
+
+#chat {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #f8f9fa;
+    /* Light gray background for contrast */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#chat p {
+    margin: 0;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    max-width: 85%;
+    position: relative;
+    word-wrap: break-word;
+}
+
+/* User Messages */
+#chat p:nth-child(odd) {
+    background: #e9ecef;
+    /* Neutral gray */
+    color: #000000;
+    /* FORCE BLACK TEXT */
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+}
+
+#chat p:nth-child(odd) strong {
+    color: #495057;
+}
+
+/* AI Messages */
+#chat p:nth-child(even) {
+    background: #fff3e0;
+    /* Light orange tint */
+    color: #000000;
+    /* FORCE BLACK TEXT */
+    border-left: 4px solid #f9700f;
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+}
+
+#chat p:nth-child(even) strong {
+    color: #d35400;
+}
+
+/* Scrollbar for chat */
+#chat::-webkit-scrollbar {
+    width: 6px;
+}
+
+#chat::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+#chat::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 3px;
 }
