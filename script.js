@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroContent = [
         {
             // Slide 1: Aggression & Behavior Modification (Pain Point: Fear/Chaos -> Solution: Control)
-            title: "TURN<br>AGGRESSIVE<br>BEHAVIOR<br>INTO CALM,",
+            title: "TURN<br>AGGRESSIVE<br>BEHAVIOR<br>INTO CALM,TRUSTED BEHAVIOR",
             description: "Tired of your dog's out-of-control behavior? Our trainers help dogs chill out, stop reacting, and become the reliable buddy you’ve always wanted. Let’s get your dog and your life back on track—start today!",
             ctaText: "GET SUPPORT TODAY",
             ctaLink: "training.html"
