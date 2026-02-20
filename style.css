@@ -2889,7 +2889,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 40px;
+    gap: 25px;
 }
 
 /* Logo */
@@ -2899,6 +2899,7 @@ body {
     gap: 12px;
     text-decoration: none;
     transition: var(--transition);
+    flex-shrink: 0;
 }
 
 .logo-icon {
@@ -2947,7 +2948,7 @@ body {
 .nav-links-new {
     display: flex;
     list-style: none;
-    gap: 35px;
+    gap: 25px;
     margin: 0;
     padding: 0;
     flex: 1;
@@ -2986,7 +2987,8 @@ body {
 .navbar-right {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 15px;
+    flex-shrink: 0;
 }
 
 /* Social Icons */
@@ -3021,7 +3023,7 @@ body {
     align-items: center;
     gap: 6px;
     background: var(--primary-orange);
-    padding: 6px 12px;
+    padding: 6px 15px;
     border-radius: 6px;
     color: white !important;
     font-weight: 600;
@@ -3029,7 +3031,8 @@ body {
     text-decoration: none;
     transition: var(--transition);
     box-shadow: 0 3px 10px rgba(249, 112, 15, 0.25);
-    width: 130px;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .phone-number-nav i {
@@ -3139,40 +3142,36 @@ body {
 /* Responsive Navbar */
 @media (max-width: 1200px) {
     .nav-links-new {
-        gap: 20px;
-    }
-
-    .social-icons-nav {
-        gap: 8px;
-    }
-
-    .social-icons-nav a {
-        width: 30px;
-        height: 30px;
-        font-size: 0.75rem;
-    }
-
-    .language-switcher {
-        padding: 6px 12px;
-        gap: 6px;
-    }
-
-    .lang-btn {
-        font-size: 0.75rem;
-    }
-}
-
-@media (max-width: 1200px) and (min-width: 993px) {
-    .nav-links-new {
         gap: 15px;
     }
 
+    .social-icons-nav {
+        display: none;
+        /* Hide social icons locally to save space for phone/CTA */
+    }
+
     .navbar-container {
-        gap: 20px;
+        gap: 15px;
     }
 
     .nav-links-new a {
         font-size: 0.8rem;
+    }
+
+    .phone-number-nav {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    .btn-nav-cta {
+        padding: 8px 12px !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+@media (max-width: 1200px) and (min-width: 993px) {
+    .navbar-container {
+        padding: 0 15px;
     }
 }
 
