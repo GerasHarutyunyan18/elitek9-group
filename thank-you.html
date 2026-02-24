@@ -47,10 +47,16 @@
                         <span class="lang-divider">|</span>
                         <a href="#" class="lang-btn" data-lang="es">ES</a>
                     </div>
-                    <a href="tel:+18183573797" class="phone-number-nav">
-                        <i class="fas fa-phone-alt"></i>
-                        <span>818-357-3797</span>
-                    </a>
+                    <div class="navbar-phone-wrapper">
+                        <a href="tel:+18183573797" class="phone-number-nav">
+                            <i class="fas fa-phone-alt"></i>
+                            818-357-3797 <span>Voskan</span>
+                        </a>
+                        <a href="tel:+14244246444" class="phone-number-nav">
+                            <i class="fas fa-phone-alt"></i>
+                            424-424-6444 <span>Simon</span>
+                        </a>
+                    </div>
                     <a href="consultation.html" class="btn-primary btn-pulse-orange btn-nav-cta">
                         Book a Free Consult
                     </a>
@@ -74,10 +80,16 @@
                     <a href="https://www.instagram.com/elite_k9_group/" target="_blank" aria-label="Instagram"><i
                             class="fab fa-instagram"></i></a>
                 </div>
-                <a href="tel:+18183573797" class="phone-number-nav">
-                    <i class="fas fa-phone-alt"></i>
-                    <span>818-357-3797</span>
-                </a>
+                <div class="navbar-phone-wrapper">
+                    <a href="tel:+18183573797" class="phone-number-nav">
+                        <i class="fas fa-phone-alt"></i>
+                        818-357-3797 <span>Voskan</span>
+                    </a>
+                    <a href="tel:+14244246444" class="phone-number-nav">
+                        <i class="fas fa-phone-alt"></i>
+                        424-424-6444 <span>Simon</span>
+                    </a>
+                </div>
             </div>
 
             <!-- Mobile Hamburger -->
@@ -119,10 +131,13 @@
                     <img src="assets/images/logo-k9-new-v02.png" alt="Elite K9 Group Logo" class="footer-logo-image">
                 </a>
                 <div class="footer-contact-info">
-                    <a href="tel:+18183573797" class="footer-contact-item">
+                    <div class="footer-contact-item">
                         <i class="fas fa-phone-alt"></i>
-                        <span>818-357-3797</span>
-                    </a>
+                        <div class="phone-links">
+                            <a href="tel:+18183573797">818-357-3797 <span>Voskan</span></a>
+                            <a href="tel:+14244246444">424-424-6444 <span>Simon</span></a>
+                        </div>
+                    </div>
                     <a href="mailto:info@elitek9group.com" class="footer-contact-item">
                         <i class="fas fa-envelope"></i>
                         <span>info@elitek9group.com</span>
@@ -171,10 +186,44 @@
     </footer>
 
     <!-- Floating Phone Button -->
-    <a href="tel:+18183573797" class="float-phone-btn" aria-label="Call Now">
+    <a href="#" class="float-phone-btn" aria-label="Call Now" id="floatPhoneBtn">
         <i class="fas fa-phone-alt"></i>
-        <span class="btn-text">Call Us Now</span>
+        <span class="btn-text">Call Us Now!</span>
     </a>
+
+    <!-- Phone Modal -->
+    <div id="phoneModal" class="modal-phone">
+        <div class="modal-phone-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-phone-header">
+                <i class="fas fa-phone-alt"></i>
+                <h3>Choose a Trainer</h3>
+            </div>
+            <div class="trainer-links">
+                <a href="tel:+18183573797" class="trainer-call-btn">
+                    <div class="trainer-info">
+                        <span class="trainer-name">Voskan</span>
+                        <span class="trainer-number">818-357-3797</span>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                <a href="tel:+14244246444" class="trainer-call-btn">
+                    <div class="trainer-info">
+                        <span class="trainer-name">Simon</span>
+                        <span class="trainer-number">424-424-6444</span>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+            <div class="modal-phone-hours">
+                <p>Please call us during these hours:</p>
+                <div class="hours-grid">
+                    <span>Mon - Fri:</span> <span>9am - 5pm</span>
+                    <span>Sat - Sun:</span> <span>9am - 4pm</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Voice AI -->
     <button id="voiceBtn" aria-label="Talk to AI">

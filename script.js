@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroContent = [
         {
             // Slide 1: Aggression & Behavior Modification (Pain Point: Fear/Chaos -> Solution: Control)
-            title: "TURN<br>AGGRESSIVE<br>BEHAVIOR<br>INTO CALM,TRUSTED BEHAVIOR",
+            title: "TURN<br>AGGRESSIVE<br>INTO CALM,TRUSTED BEHAVIOR",
             description: "Tired of your dog's out-of-control behavior? Our trainers help dogs chill out, stop reacting, and become the reliable buddy you’ve always wanted. Let’s get your dog and your life back on track—start today!",
             ctaText: "GET SUPPORT TODAY",
             ctaLink: "training.html"
@@ -416,5 +416,33 @@ document.addEventListener('DOMContentLoaded', () => {
         let dogAutoScroll = setInterval(() => moveDogSlide('next'), 5000);
 
         dogContainer.addEventListener('mouseenter', () => clearInterval(dogAutoScroll));
+    }
+
+    // --- Phone Modal Toggle ---
+    const phoneBtn = document.getElementById('floatPhoneBtn');
+    const phoneModal = document.getElementById('phoneModal');
+    const closeModal = document.querySelector('.close-modal');
+
+    if (phoneBtn && phoneModal) {
+        phoneBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            phoneModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+
+        if (closeModal) {
+            closeModal.addEventListener('click', () => {
+                phoneModal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            });
+        }
+
+        // Close on clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === phoneModal) {
+                phoneModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
     }
 });
