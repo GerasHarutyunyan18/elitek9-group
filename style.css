@@ -6,6 +6,10 @@
     /* Secondary accent - DARK RED */
     --secondary-color: #558b6e;
     /* Tertiary color - GREEN */
+    --dark-green: #375b47;
+    /* Darker green for text */
+    --accent-color: #f9700f;
+    /* Primary orange used as accent */
     --dark-gray: #2e2e2e;
     /* Dark backgrounds and text */
     --text-color: #2e2e2e;
