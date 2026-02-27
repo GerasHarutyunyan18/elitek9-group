@@ -445,4 +445,24 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- Breeding Manager Contact Button Modal ---
+    const breedingContactBtn = document.getElementById('breedingContactBtn');
+    if (breedingContactBtn && phoneModal) {
+        breedingContactBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            phoneModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    // --- Dog Profile Inquiry Button Modal ---
+    const inquiryBtn = document.getElementById('inquiryBtn');
+    if (inquiryBtn && phoneModal) {
+        inquiryBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            phoneModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
 });
