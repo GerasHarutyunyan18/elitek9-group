@@ -1,75 +1,84 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* =========================
-       BASIC SETUP
+       SPEECH RECOGNITION
     ========================= */
 
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    let recognition;
+    let recognition = null;
 
-    // Check browser support
     if (SpeechRecognition) {
         recognition = new SpeechRecognition();
         recognition.lang = 'en-US';
         recognition.interimResults = false;
         recognition.continuous = false;
-    } else {
-        console.warn("Speech Recognition API not supported in this browser.");
     }
+
+    /* =========================
+       ELEMENTS
+    ========================= */
 
     const chat = document.getElementById("chat");
     const chatWidget = document.getElementById("chat-widget");
     const btn = document.getElementById("voiceBtn");
     const closeBtn = document.getElementById("close-chat-btn");
 
-    if (!btn || !chat) return; // Exit if elements not found
+    if (!btn || !chat) {
+        console.error("Missing required elements");
+        return;
+    }
 
-    // Replace microphone icon with dog image and add hover text
+    /* =========================
+       BUTTON UI
+    ========================= */
+
     btn.innerHTML = `
-        <img src="assets/images/grok-video-51f047fb-90ae-435d-94a5-96b3ebbfd7bb-(1).gif" alt="AI Dog" style="width: 100%; height: 100%; object-fit: cover;">
-        <span class="btn-text">Talk to me<br> I am DogBot</span>
+        <img src="assets/images/grok-video-51f047fb-90ae-435d-94a5-96b3ebbfd7bb-(1).gif"
+             style="width:100%;height:100%;object-fit:cover;">
+        <span class="btn-text">Talk to me<br>I am DogBot</span>
     `;
 
-    let turnCount = 0;
-    let isListening = false;
-    let isChatOpen = false;
-
     /* =========================
-       SPEAK FUNCTION
+       AUDIO FILES
     ========================= */
 
-    function speak(text, onEndCallback) {
-        if (!window.speechSynthesis) return;
+    const greetingAudio = new Audio("assets/audio/dog-bot.wav");
+    const answerAudio = new Audio("assets/audio/dog-answer.wav");
 
-        const msg = new SpeechSynthesisUtterance(text);
-        msg.lang = "en-US";
-        msg.rate = 1;
-        msg.pitch = 1;
+    greetingAudio.preload = "auto";
+    answerAudio.preload = "auto";
 
-        msg.onend = () => {
-            if (onEndCallback) onEndCallback();
+    function playAudio(audio, callback) {
+        audio.currentTime = 0;
+        audio.play().catch(err => console.error(err));
+        audio.onended = () => {
+            if (callback) callback();
         };
+    }
 
-        window.speechSynthesis.cancel(); // important
-        window.speechSynthesis.speak(msg);
+    function stopAudio() {
+        greetingAudio.pause();
+        greetingAudio.currentTime = 0;
+        greetingAudio.onended = null;
+        answerAudio.pause();
+        answerAudio.currentTime = 0;
+        answerAudio.onended = null;
     }
 
     /* =========================
-       TIME CHECK
+       STATE
     ========================= */
 
-    function isAfterHours() {
-        const now = new Date();
-        const hour = now.getHours();
-        return hour < 9 || hour >= 18;
-    }
+    let isChatOpen = false;
+    let isListening = false;
+    let hasGreeted = false;
 
     /* =========================
        UI HELPERS
     ========================= */
 
     function addMessage(sender, text) {
-        const p = document.createElement('p');
+        const p = document.createElement("p");
         p.innerHTML = `<strong>${sender}:</strong> ${text}`;
         chat.appendChild(p);
         chat.scrollTop = chat.scrollHeight;
@@ -78,163 +87,83 @@ document.addEventListener('DOMContentLoaded', () => {
     function toggleChat(show) {
         isChatOpen = show;
         if (chatWidget) {
-            chatWidget.style.display = show ? 'flex' : 'none';
-        } else {
-            chat.style.display = show ? 'flex' : 'none';
+            chatWidget.style.display = show ? "flex" : "none";
         }
-        chat.scrollTop = chat.scrollHeight;
     }
 
-    // Close button logic
     if (closeBtn) {
         closeBtn.onclick = () => {
             toggleChat(false);
             if (recognition) recognition.stop();
-            window.speechSynthesis.cancel();
             isListening = false;
-            btn.classList.remove('listening');
+            hasGreeted = false;
+            stopAudio();
         };
     }
 
     /* =========================
-       INTENT DETECTION
-    ========================= */
-
-    function detectIntent(text) {
-        text = text.toLowerCase();
-
-        if (text.match(/aggressive|aggression|bite|biting|growl|reactive|attack/)) {
-            return "aggression";
-        }
-
-        if (text.match(/price|cost|how much|pricing/)) {
-            return "pricing";
-        }
-
-        if (text.match(/how do you|method|approach|train/)) {
-            return "method";
-        }
-
-        if (text.match(/kids|children|family|safe|home/)) {
-            return "family";
-        }
-
-        if (text.match(/online|in person|at home|location/)) {
-            return "location";
-        }
-
-        return "unknown";
-    }
-
-    /* =========================
-       AI RESPONSE LOGIC
-    ========================= */
-
-    function getAIResponse(userText) {
-        turnCount++;
-        const intent = detectIntent(userText);
-
-        if (isAfterHours()) {
-            return "Thanks for reaching out. We’re currently closed, but I can help you get started. Please leave your name and phone number, and we’ll contact you as soon as we’re open.";
-        }
-
-        switch (intent) {
-            case "aggression":
-                return "I understand. Aggressive behavior can be very stressful for families. When does this usually happen — at home, on walks, or around new people?";
-
-            case "pricing":
-                return "Pricing depends on your dog’s needs. We start with a free consultation. Would you like us to contact you to go over the details?";
-
-            case "method":
-                return "We focus on clear communication, structure, and consistency. Every dog and family is different.";
-
-            case "family":
-                return "Safety at home is always the priority. We help families create calm, reliable behavior.";
-
-            case "location":
-                return "That’s something we can discuss during a free consultation.";
-
-            default:
-                if (turnCount >= 3) {
-                    return "If you’d like, you can leave your name and phone number, and we’ll contact you to discuss the next steps.";
-                }
-                return "Thanks for sharing. Can you tell me a bit more?";
-        }
-    }
-
-    /* =========================
-       LISTEN FUNCTION
+       LISTEN
     ========================= */
 
     function startListening() {
-        if (isListening || !recognition) return;
+        if (!recognition || isListening) return;
         isListening = true;
         try {
             recognition.start();
-            btn.classList.add('listening'); // Optional visual cue
         } catch (e) {
-            console.error(e);
             isListening = false;
         }
     }
 
     /* =========================
-       VOICE FLOW
+       CLICK FLOW
     ========================= */
-
+    let firstTime = true;
     btn.onclick = () => {
-        // Toggle chat visibility if it's not open, or just ensure it's open
-        if (!isChatOpen) {
-            toggleChat(true);
+        toggleChat(true);
 
-            // Only start greeting if chat was empty (first time)
-            if (chat.children.length === 0) {
-                const greeting = "Beep-boop! Woof! 🐾Hello! I’m your robot assistant, and I’m listening to you very carefully.Woof! 💙Please tell me how I can help you today.";
-                addMessage("AI", greeting);
-                speak(greeting, startListening);
-            } else {
-                // If opening again, maybe just listen?
-                // Or let user decide to speak.
-                // Let's prompt listening.
-                startListening();
+        if (!hasGreeted) {
+            hasGreeted = true;
+            if (firstTime == true) {
+
+                addMessage(
+                    "AI",
+                    "Woof,woof! Hello, I'm your robot assistant, and I'm listening to you very carefully. Please tell me how I can help you today."
+                );
+                firstTime = false;
             }
-        } else {
-            // If already open, clicking button keeps it open and listens
-            speak("I'm listening.", startListening);
+
+            // ▶️ СНАЧАЛА приветствие, ПОТОМ слушаем
+            playAudio(greetingAudio, startListening);
         }
     };
+
+    /* =========================
+       AFTER USER FINISHES SPEAKING
+    ========================= */
 
     if (recognition) {
         recognition.onresult = (event) => {
             isListening = false;
-            btn.classList.remove('listening');
 
             const userText = event.results[0][0].transcript;
             addMessage("You", userText);
 
-            const response = getAIResponse(userText);
-            addMessage("AI", response);
+            addMessage(
+                "AI",
+                "Thank you for your question! Our managers will answer all your questions very soon.You can contact Voskan at 818-357-3797, or Simon at 424-424-6444. Woof!"
+            );
 
-            speak(response, startListening);
-        };
-
-        recognition.onerror = (event) => {
-            console.error("Speech Recognition Error", event.error);
-            isListening = false;
-            btn.classList.remove('listening');
-            // Don't auto-speak error to avoid loops, unless specific error
-            if (event.error === 'no-speech') {
-                // speak("I didn't hear anything.", startListening);
-            }
+            // ▶️ ОТВЕТ ТОЛЬКО ПОСЛЕ ОКОНЧАНИЯ ВОПРОСА
+            playAudio(answerAudio);
         };
 
         recognition.onend = () => {
             isListening = false;
-            btn.classList.remove('listening');
         };
-    } else {
-        btn.onclick = () => {
-            alert("Voice recognition not supported in this browser. Please try Chrome.");
-        }
+
+        recognition.onerror = () => {
+            isListening = false;
+        };
     }
 });
