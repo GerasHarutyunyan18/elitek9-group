@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Only start greeting if chat was empty (first time)
             if (chat.children.length === 0) {
-                const greeting = "Hi! You can speak freely. Tell me what’s going on with your dog.";
+                const greeting = "Beep-boop! Woof! 🐾Hello! I’m your robot assistant, and I’m listening to you very carefully.Woof! 💙Please tell me how I can help you today.";
                 addMessage("AI", greeting);
                 speak(greeting, startListening);
             } else {
