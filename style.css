@@ -4349,7 +4349,7 @@ body {
     transform: translateX(20px) scale(0.5);
     transform-origin: right center;
     pointer-events: none;
-    animation: bubbleCycle 10s ease-in-out infinite;
+    animation: bubbleCycle 65s ease-in-out infinite;
 }
 
 @keyframes bubbleCycle {
@@ -4359,19 +4359,19 @@ body {
         transform: translateX(20px) scale(0.5);
     }
 
-    5% {
+    2% {
         opacity: 1;
         visibility: visible;
         transform: translateX(0) scale(1);
     }
 
-    50% {
+    8% {
         opacity: 1;
         visibility: visible;
         transform: translateX(0) scale(1);
     }
 
-    55% {
+    10% {
         opacity: 0;
         visibility: hidden;
         transform: translateX(20px) scale(0.5);
