@@ -1472,10 +1472,19 @@ footer {
 }
 
 .blog-image {
-    height: 200px;
-    background-color: #eee;
-    background-size: cover;
-    background-position: center;
+    height: 280px;
+    background-color: #f5f5f5;
+    display: block;
+    overflow: hidden;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 60%;
+    border-radius: 0;
+    display: block;
 }
 
 .blog-content {
@@ -3272,46 +3281,6 @@ body {
     display: none;
 }
 
-/* Language Switcher */
-.language-switcher {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 5px 12px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.lang-btn {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: var(--transition);
-    padding: 2px 5px;
-}
-
-.lang-btn i {
-    font-size: 0.9rem;
-}
-
-.lang-btn:hover {
-    color: var(--primary-orange);
-}
-
-.lang-btn.active {
-    color: white;
-}
-
-.lang-divider {
-    color: rgba(255, 255, 255, 0.3);
-    font-size: 0.9rem;
-}
-
 /* Mobile Hamburger - Update for new navbar */
 .navbar-new .hamburger {
     display: none;
@@ -3419,13 +3388,6 @@ body {
         border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .mobile-menu-footer .language-switcher {
-        display: flex;
-        justify-content: center;
-        align-self: flex-start;
-        background: rgba(255, 255, 255, 0.1);
-    }
-
     .mobile-menu-footer .phone-number-nav {
         width: 100%;
         justify-content: center;
@@ -3442,18 +3404,6 @@ body {
 
     .navbar-right {
         display: none;
-    }
-
-    /* Show language switcher in mobile menu */
-    .language-switcher-mobile {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        padding: 15px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50px;
-        margin-top: 20px;
     }
 }
 
@@ -4643,5 +4593,25 @@ body {
     .team-gallery .gallery-item img {
         object-fit: contain;
         background-color: #f9f9f9;
+    }
+}
+
+/* --- Mobile: Smaller floating buttons --- */
+@media (max-width: 480px) {
+    .float-phone-btn {
+        width: 65px;
+        height: 65px;
+        font-size: 20px;
+        bottom: 10px;
+        right: 18px;
+    }
+
+    #voiceBtn {
+        width: 65px;
+        height: 65px;
+        font-size: 20px;
+        bottom: 82px;
+        /* 18px + 52px + 12px gap */
+        right: 18px;
     }
 }

@@ -31,39 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Language Switcher ---
-    const langButtons = document.querySelectorAll('.lang-btn');
-
-    langButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            // Remove active from all
-            langButtons.forEach(b => b.classList.remove('active'));
-
-            // Add active to clicked
-            btn.classList.add('active');
-
-            // Here you can add logic to change language
-            const selectedLang = btn.getAttribute('data-lang');
-            console.log('Language changed to:', selectedLang);
-
-            // Store language preference
-            localStorage.setItem('preferredLanguage', selectedLang);
-        });
-    });
-
-    // Load saved language preference
-    const savedLang = localStorage.getItem('preferredLanguage');
-    if (savedLang) {
-        langButtons.forEach(btn => {
-            if (btn.getAttribute('data-lang') === savedLang) {
-                langButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-            }
-        });
-    }
-
     // --- FAQ Accordion ---
     const faqItems = document.querySelectorAll('.faq-item');
 
