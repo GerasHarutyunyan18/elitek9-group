@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             addMessage(
                 "Berry",
-                "Thanks for your question!I’m a still a little pup 🐾 and can’t answer myself, but you can contact my trainers to get answers to all your questions. Call <br>Voskan at <a href='tel:+18183573797'>818-357-3797</a> or <br>Simon at <a href='tel:+14244246444'>424-424-6444</a>."
+                "Thanks for your question!I’m a still a little pup 🐾 and can’t answer myself, but you can contact my trainers to get answers to all your questions. Call <br>Voskan at <a href='tel:+18183573797'><strong>818-357-3797</strong></a> or <br>Simon at <a href='tel:+14244246444'><strong>424-424-6444</strong></a>."
             );
 
             // ▶️ ОТВЕТ ТОЛЬКО ПОСЛЕ ОКОНЧАНИЯ ВОПРОСА
