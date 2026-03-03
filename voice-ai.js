@@ -127,8 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (firstTime == true) {
 
                 addMessage(
-                    "AI",
-                    "Woof,woof! Hello, I'm your robot assistant, and I'm listening to you very carefully. Please tell me how I can help you today."
+                    "Berry",
+                    "Woof,woof! Hello, I'm DogBot, and I'm listening to you very carefully. Please tell me how I can help you today."
                 );
                 firstTime = false;
             }
@@ -150,8 +150,8 @@ document.addEventListener('DOMContentLoaded', () => {
             addMessage("You", userText);
 
             addMessage(
-                "AI",
-                "Thank you for your question! Our managers will answer all your questions very soon.You can contact Voskan at 818-357-3797, or Simon at 424-424-6444. Woof!"
+                "Berry",
+                "Thanks for your question! I’m still a little pup 🐾 and can’t answer myself, but you can contact our trainers to get answers to all your questions. Call Voskan at <a href='tel:+18183573797'>818-357-3797</a> or Simon at <a href='tel:+14244246444'>424-424-6444</a>."
             );
 
             // ▶️ ОТВЕТ ТОЛЬКО ПОСЛЕ ОКОНЧАНИЯ ВОПРОСА

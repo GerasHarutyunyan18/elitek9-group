@@ -484,12 +484,20 @@ img {
 .image-placeholder {
     width: 100%;
     height: auto;
-    background-color: #e0e0e0;
+
     border-radius: 12px;
-    background-image: url('assets/images/about.webp');
+    /* background-image: url('assets/images/about.webp'); */
     /* Will be generated */
     background-size: cover;
-    background-position: center;
+
+}
+
+.image-placeholder img {
+    width: 100%;
+    height: 700px;
+    border-radius: 12px;
+    object-fit: cover;
+    object-position: 50% 17%;
 }
 
 /* --- Video Section --- */
@@ -4613,5 +4621,174 @@ body {
         bottom: 82px;
         /* 18px + 52px + 12px gap */
         right: 18px;
+    }
+}
+
+/* =========================================
+   Flexible Payment Plans Banner
+   ========================================= */
+.payment-plans-banner {
+    position: relative;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2e2e2e 50%, #1a1a1a 100%);
+    padding: 80px 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+.payment-plans-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(249, 112, 15, 0.18) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: paymentGlow 4s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes paymentGlow {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+}
+
+.payment-plans-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.payment-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(249, 112, 15, 0.15);
+    border: 1px solid rgba(249, 112, 15, 0.4);
+    color: var(--primary-orange);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    animation: pulse-orange 2.5s infinite;
+}
+
+.payment-badge i {
+    font-size: 0.9rem;
+}
+
+.payment-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: #ffffff !important;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.payment-title span {
+    color: var(--primary-orange);
+}
+
+.payment-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.65);
+    max-width: 560px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.payment-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 4px;
+}
+
+.payment-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    color: #ffffff;
+    padding: 12px 22px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.payment-pill:hover {
+    background: rgba(249, 112, 15, 0.15);
+    border-color: rgba(249, 112, 15, 0.5);
+    transform: translateY(-3px);
+}
+
+.payment-pill i {
+    color: var(--primary-orange);
+    font-size: 1rem;
+}
+
+.payment-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--primary-orange);
+    color: #ffffff;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid var(--primary-orange);
+    transition: var(--transition);
+    margin-top: 8px;
+    text-decoration: none;
+    box-shadow: 0 8px 30px rgba(249, 112, 15, 0.35);
+}
+
+.payment-cta-btn i {
+    transition: transform 0.3s ease;
+}
+
+.payment-cta-btn:hover {
+    background: transparent;
+    color: var(--primary-orange);
+    box-shadow: 0 12px 40px rgba(249, 112, 15, 0.2);
+    transform: translateY(-3px);
+}
+
+.payment-cta-btn:hover i {
+    transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+    .payment-plans-banner {
+        padding: 60px 0;
+    }
+
+    .payment-pills {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .payment-pill {
+        width: 100%;
+        justify-content: center;
+        max-width: 280px;
     }
 }
