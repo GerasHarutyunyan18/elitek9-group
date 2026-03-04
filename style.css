@@ -4405,12 +4405,7 @@ body {
 }
 
 
-@media (max-width:385px) {
-    #chat-widget {
-        right: 0 !important;
-        bottom: 150px !important;
-    }
-}
+
 
 @keyframes bubbleCycle {
     0% {
@@ -4673,6 +4668,23 @@ body {
         bottom: 82px;
         /* 18px + 52px + 12px gap */
         right: 18px;
+    }
+
+    #chat-widget {
+        width: 92%;
+        max-width: 360px;
+        height: 60vh;
+        max-height: 480px;
+        bottom: 160px;
+        right: 4%;
+        left: 4%;
+        margin: 0 auto;
+        border-radius: 20px;
+    }
+
+    #close-chat-btn {
+        padding: 5px 15px;
+        font-size: 2.2rem;
     }
 }
 

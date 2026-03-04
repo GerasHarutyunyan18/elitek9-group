@@ -226,6 +226,48 @@ document.addEventListener('DOMContentLoaded', () => {
             heroDesc.style.transition = 'opacity 0.3s ease';
             heroCta.style.transition = 'opacity 0.3s ease';
         }
+
+        // --- Touch / Swipe Support for Hero Slider ---
+        const heroSlider = document.querySelector('.hero-slider-new');
+        if (heroSlider) {
+            let touchStartX = 0;
+            let touchStartY = 0;
+            let isSwiping = false;
+
+            heroSlider.addEventListener('touchstart', (e) => {
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+                isSwiping = false;
+                clearInterval(heroSlideTimer);
+            }, { passive: true });
+
+            heroSlider.addEventListener('touchmove', (e) => {
+                const deltaX = e.touches[0].clientX - touchStartX;
+                const deltaY = e.touches[0].clientY - touchStartY;
+                if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                    isSwiping = true;
+                    // If the target is a link or button, we might want to let it work, 
+                    // but for a slider usually we preventDefault to prevent scrolling
+                    if (e.cancelable) e.preventDefault();
+                }
+            }, { passive: false });
+
+            heroSlider.addEventListener('touchend', (e) => {
+                if (!isSwiping) {
+                    resetHeroTimer();
+                    return;
+                }
+                const deltaX = e.changedTouches[0].clientX - touchStartX;
+                const swipeThreshold = Math.max(30, window.innerWidth * 0.10);
+                if (deltaX < -swipeThreshold) {
+                    nextHeroSlide(); // swipe left -> go forward
+                } else if (deltaX > swipeThreshold) {
+                    prevHeroSlide(); // swipe right -> go back
+                }
+                isSwiping = false;
+                resetHeroTimer();
+            }, { passive: true });
+        }
     }
 
     // --- Enhanced Dog Animations ---

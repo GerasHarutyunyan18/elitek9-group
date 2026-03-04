@@ -89,6 +89,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (chatWidget) {
             chatWidget.style.display = show ? "flex" : "none";
         }
+
+        // Hide the "Talk to me" bubble text when chat is open
+        const btnText = btn.querySelector('.btn-text');
+        if (btnText) {
+            btnText.style.opacity = show ? "0" : "";
+            btnText.style.visibility = show ? "hidden" : "";
+        }
     }
 
     if (closeBtn) {
