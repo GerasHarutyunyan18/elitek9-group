@@ -4009,63 +4009,58 @@ body {
         margin-top: 0;
     }
 
-    .program-overlay {
-        background: rgba(0, 0, 0, 0.6);
-        opacity: 1;
-    }
 
-    .program-content h3 {
-        font-size: 1.5rem;
-    }
-
-    /* Footer */
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .locations-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-new {
-        padding: 40px 0 0;
-    }
-
-    .footer-brand,
-    .footer-nav,
-    .footer-locations {
-        text-align: center;
-        align-items: center;
-    }
-
-    .footer-contact-info {
-        align-items: center;
-    }
-
-    .footer-nav ul,
-    .locations-grid {
-        text-align: center;
-    }
-
-    .footer-logo {
-        margin: 0 auto;
-    }
-
-    .location-col {
-        gap: 8px;
-        /* Tighter list */
-    }
-
-    /* Quote Section */
-    .quote-text-main {
-        font-size: 1.8rem;
-    }
-
-    .quote-icon-main {
-        font-size: 1.8rem;
-    }
 }
+
+.program-content h3 {
+    font-size: 1.5rem;
+}
+
+/* Footer */
+
+
+.locations-grid {
+    grid-template-columns: 1fr;
+}
+
+.footer-new {
+    padding: 40px 0 0;
+}
+
+.footer-brand,
+.footer-nav,
+.footer-locations {
+    text-align: center;
+    align-items: center;
+}
+
+.footer-contact-info {
+    align-items: center;
+}
+
+.footer-nav ul,
+.locations-grid {
+    text-align: center;
+}
+
+.footer-logo {
+    margin: 0 auto;
+}
+
+.location-col {
+    gap: 8px;
+    /* Tighter list */
+}
+
+/* Quote Section */
+.quote-text-main {
+    font-size: 1.8rem;
+}
+
+.quote-icon-main {
+    font-size: 1.8rem;
+}
+
 
 @media (max-width: 360px) {
 
@@ -4488,8 +4483,8 @@ body {
     position: fixed;
     bottom: 210px;
     right: 30px;
-    width: 320px;
-    height: 450px;
+    width: 300px;
+    height: 420px;
     background: white;
     border-radius: 16px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
@@ -4705,9 +4700,9 @@ body {
 
     #chat-widget {
         width: 92%;
-        max-width: 360px;
-        height: 60vh;
-        max-height: 480px;
+        max-width: 330px;
+        height: 55vh;
+        max-height: 440px;
         bottom: 160px;
         right: 4%;
         left: 4%;
