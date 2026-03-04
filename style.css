@@ -4365,8 +4365,8 @@ body {
 
 @media (max-width:385px) {
     #chat-widget {
-        right: 0;
-        bottom: 150px
+        right: 0 !important;
+        bottom: 150px !important;
     }
 }
 
