@@ -90,11 +90,14 @@ document.addEventListener('DOMContentLoaded', () => {
             chatWidget.style.display = show ? "flex" : "none";
         }
 
-        // Hide the "Talk to me" bubble text when chat is open
         const btnText = btn.querySelector('.btn-text');
         if (btnText) {
             btnText.style.opacity = show ? "0" : "";
             btnText.style.visibility = show ? "hidden" : "";
+        }
+
+        if (!show) {
+            btn.classList.remove("is-listening-active");
         }
     }
 
@@ -103,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleChat(false);
             if (recognition) recognition.stop();
             isListening = false;
-            hasGreeted = false;
             stopAudio();
         };
     }
@@ -113,12 +115,23 @@ document.addEventListener('DOMContentLoaded', () => {
     ========================= */
 
     function startListening() {
-        if (!recognition || isListening) return;
+        if (!recognition) return;
+
+        // Restart recognition if already active to ensure fresh capture
+        if (isListening) {
+            try { recognition.stop(); } catch (e) { }
+        }
+
         isListening = true;
+        btn.classList.add("is-listening-active");
+
         try {
             recognition.start();
+            console.log("DogBot is now listening carefully...");
         } catch (e) {
+            console.error("Speech recognition error:", e);
             isListening = false;
+            btn.classList.remove("is-listening-active");
         }
     }
 
@@ -127,21 +140,25 @@ document.addEventListener('DOMContentLoaded', () => {
     ========================= */
     let firstTime = true;
     btn.onclick = () => {
-        toggleChat(true);
+        if (!isChatOpen) {
+            toggleChat(true);
+        }
+
+        stopAudio();
 
         if (!hasGreeted) {
             hasGreeted = true;
-            if (firstTime == true) {
-
+            if (firstTime) {
                 addMessage(
                     "Berry",
-                    "Woof,woof! Hello, I’m a DogBot, and I'm listening to you very carefully. Please tell me how I can help you today."
+                    "Woof, woof! Hello, I’m DogBot, and I'm listening to you very carefully. Please tell me how I can help you today."
                 );
                 firstTime = false;
             }
-
-            // ▶️ СНАЧАЛА приветствие, ПОТОМ слушаем
             playAudio(greetingAudio, startListening);
+        } else {
+            // If already greeted, just trigger listening immediately
+            startListening();
         }
     };
 
@@ -152,25 +169,28 @@ document.addEventListener('DOMContentLoaded', () => {
     if (recognition) {
         recognition.onresult = (event) => {
             isListening = false;
+            btn.classList.remove("is-listening-active");
 
             const userText = event.results[0][0].transcript;
             addMessage("You", userText);
 
             addMessage(
                 "Berry",
-                "Thanks for your question!I’m a still a little pup 🐾 and can’t answer myself, but you can contact my trainers to get answers to all your questions. Call <br>Voskan at <a href='tel:+18183573797'><strong>818-357-3797</strong></a> or <br>Simon at <a href='tel:+14244246444'><strong>424-424-6444</strong></a>."
+                "Thanks for your question! I’m still a little pup 🐾 and can’t answer myself, but you can contact my trainers to get answers to all your questions. Call <br>Voskan at <a href='tel:+18183573797'><strong>818-357-3797</strong></a> or <br>Simon at <a href='tel:+14244246444'><strong>424-424-6444</strong></a>."
             );
 
-            // ▶️ ОТВЕТ ТОЛЬКО ПОСЛЕ ОКОНЧАНИЯ ВОПРОСА
             playAudio(answerAudio);
         };
 
         recognition.onend = () => {
             isListening = false;
+            btn.classList.remove("is-listening-active");
         };
 
-        recognition.onerror = () => {
+        recognition.onerror = (event) => {
+            console.error("Recognition Error:", event.error);
             isListening = false;
+            btn.classList.remove("is-listening-active");
         };
     }
 });
