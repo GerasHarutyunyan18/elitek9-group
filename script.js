@@ -383,6 +383,43 @@ document.addEventListener('DOMContentLoaded', () => {
         let dogAutoScroll = setInterval(() => moveDogSlide('next'), 5000);
 
         dogContainer.addEventListener('mouseenter', () => clearInterval(dogAutoScroll));
+
+        // --- Touch / Swipe Support for Dog Slider ---
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let isSwiping = false;
+
+        dogContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            isSwiping = false;
+            clearInterval(dogAutoScroll);
+        }, { passive: true });
+
+        dogContainer.addEventListener('touchmove', (e) => {
+            const deltaX = e.touches[0].clientX - touchStartX;
+            const deltaY = e.touches[0].clientY - touchStartY;
+            // If horizontal movement is dominant, flag as swipe and prevent page scroll
+            if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                isSwiping = true;
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        dogContainer.addEventListener('touchend', (e) => {
+            if (!isSwiping) return;
+            const deltaX = e.changedTouches[0].clientX - touchStartX;
+            // Dynamic threshold: 10% of screen width, min 30px — works on 320px phones
+            const swipeThreshold = Math.max(30, window.innerWidth * 0.10);
+            if (deltaX < -swipeThreshold) {
+                moveDogSlide('next'); // swipe left → go forward
+            } else if (deltaX > swipeThreshold) {
+                moveDogSlide('prev'); // swipe right → go back
+            }
+            isSwiping = false;
+            // Restart auto-scroll after user finishes swiping
+            dogAutoScroll = setInterval(() => moveDogSlide('next'), 5000);
+        }, { passive: true });
     }
 
     // --- Phone Modal Toggle ---

@@ -2504,7 +2504,7 @@ footer {
     }
 
     .dog-slider-wrapper {
-        padding: 0 40px;
+        padding: 0;
     }
 
     .dog-slider-track {
@@ -2513,11 +2513,11 @@ footer {
 
     .dog-slide-item {
         flex: 0 0 100%;
-        padding: 0 10px;
+        padding: 0;
     }
 
     .dog-slide-image {
-        max-width: 450px;
+        max-width: 100%;
         margin-left: auto;
         margin-right: auto;
         height: auto;
@@ -3869,48 +3869,31 @@ body {
 
     /* Dedicated Slider Fixes for Mobile */
     .dog-slider-wrapper {
-        padding: 0 10px;
-        /* Minimal padding for arrows */
+        padding: 0;
         position: relative;
     }
 
     .dog-slider-container {
-        border-radius: 8px;
+        border-radius: 0;
     }
 
     .dog-slider-track {
         gap: 0;
-        /* Remove gap for perfectly clean 100% translation on mobile */
     }
 
     .dog-slide-item {
-        padding: 0 5px;
-        /* Subtle spacing between slides */
+        padding: 0;
         flex: 0 0 100%;
     }
 
     .dog-slide-image {
         height: auto;
-        /* Adapt to image aspect ratio */
         max-width: 100%;
     }
 
+    /* Hide arrows on small phones — swipe is the navigation */
     .slider-arrow {
-        width: 36px;
-        height: 36px;
-        font-size: 1.2rem;
-        background: rgba(0, 0, 0, 0.5);
-        border-radius: 50%;
-        color: white;
-        z-index: 5;
-    }
-
-    .prev-dog {
-        left: 5px;
-    }
-
-    .next-dog {
-        right: 5px;
+        display: none;
     }
 
     /* Programs Full Width */
