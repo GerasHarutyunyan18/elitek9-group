@@ -69,6 +69,7 @@ img {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    overflow: hidden;
 }
 
 .section-padding {
@@ -489,6 +490,7 @@ img {
     /* background-image: url('assets/images/about.webp'); */
     /* Will be generated */
     background-size: cover;
+
 
 }
 
@@ -4358,6 +4360,14 @@ body {
     transform-origin: right center;
     pointer-events: none;
     animation: bubbleCycle 65s ease-in-out infinite;
+}
+
+
+@media (max-width:385px) {
+    #chat-widget {
+        right: 0;
+        bottom: 150px
+    }
 }
 
 @keyframes bubbleCycle {
