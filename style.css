@@ -1914,7 +1914,7 @@ footer {
     }
 
     .breeding-img {
-        height: 250px;
+        height: auto;
     }
 }
 
@@ -2997,6 +2997,11 @@ footer {
         width: 160px;
         height: 160px;
     }
+
+    .hero-diamond-grid {
+        grid-template-columns: repeat(2, 160px);
+        grid-template-rows: repeat(2, 160px);
+    }
 }
 
 @media (max-width: 992px) {
@@ -3042,6 +3047,8 @@ footer {
 
     .hero-diamond-grid {
         gap: 10px;
+        grid-template-columns: repeat(2, 120px);
+        grid-template-rows: repeat(2, 120px);
     }
 
     .diamond-shape {
@@ -3050,9 +3057,30 @@ footer {
     }
 
     .hero-nav-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
+        top: auto;
+        bottom: 25%;
+        transform: none;
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        color: white;
+    }
+
+    .hero-nav-btn:hover {
+        transform: scale(1.1);
+        background: var(--primary-orange);
+    }
+
+    .hero-prev {
+        left: 20px;
+    }
+
+    .hero-next {
+        right: 20px;
     }
 }
 
@@ -3064,6 +3092,11 @@ footer {
     .diamond-shape {
         width: 90px;
         height: 90px;
+    }
+
+    .hero-diamond-grid {
+        grid-template-columns: repeat(2, 90px);
+        grid-template-rows: repeat(2, 90px);
     }
 
     .hero-text-content {
@@ -3805,7 +3838,7 @@ body {
 
     .hero-text-content {
         flex: 0 0 100%;
-        padding-right: 0;
+        /* padding-right: 0; */
         margin-bottom: 30px;
     }
 
@@ -3891,9 +3924,35 @@ body {
         max-width: 100%;
     }
 
-    /* Hide arrows on small phones — swipe is the navigation */
+    /* Premium mobile arrows for dog slider */
     .slider-arrow {
-        display: none;
+        display: flex;
+        width: 44px;
+        height: 44px;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        color: var(--primary-orange);
+        font-size: 1.1rem;
+        z-index: 10;
+        top: 40%;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        transition: all 0.3s ease;
+    }
+
+    .slider-arrow:active {
+        transform: scale(0.9);
+        background: var(--primary-orange);
+        color: white;
+    }
+
+    .prev-dog {
+        left: 10px;
+    }
+
+    .next-dog {
+        right: 10px;
     }
 
     /* Programs Full Width */

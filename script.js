@@ -118,25 +118,26 @@ document.addEventListener('DOMContentLoaded', () => {
     let heroCurrentSlide = 0;
     const heroSlideInterval = 6000; // 6 seconds per slide
     let heroSlideTimer;
+    let heroContentTimeout;
 
     // Hero content variations for each slide
     const heroContent = [
         {
-            // Slide 1: Aggression & Behavior Modification (Pain Point: Fear/Chaos -> Solution: Control)
-            title: "TURN<br>AGGRESSIVE<br>INTO CALM,TRUSTED BEHAVIOR",
+            // Slide 1: Aggression & Behavior Modification
+            title: "TURN AGGRESSIVE<br>INTO CALM,<br>TRUSTED BEHAVIOR",
             description: "Tired of your dog's out-of-control behavior? Our trainers help dogs chill out, stop reacting, and become the reliable buddy you’ve always wanted. Let’s get your dog and your life back on track—start today!",
             ctaText: "GET SUPPORT TODAY",
             ctaLink: "training.html"
         },
         {
-            // Slide 2: Family Protection & Obedience (Desire: Safety/Harmony)
-            title: "<br>BOARD & TRAIN<br>PROGRAMS",
+            // Slide 2: Family Protection & Obedience
+            title: "BOARD & TRAIN<br>PROGRAMS",
             description: "Imagine a dog that’s calm, reliable, and always looking out for your family. Our in-home and intensive training programs help dogs build confidence, master obedience, and become the trusted companion every household needs. Start your journey to a safer, happier home today",
             ctaText: "Choose Training Program",
             ctaLink: "services.html"
         },
         {
-            // Slide 3: Elite Dogs for Sale (Desire: Prestige/Security)
+            // Slide 3: Elite Dogs for Sale
             title: "ELITE PROTECTION DOGS<br>FOR SALE",
             description: "Don’t just get a dog—get peace of mind. Our elite protection dogs are trained, tested, and ready to guard your home and family from day one. Smart, loyal, and dependable—find your ultimate family protector in Los Angeles today.",
             ctaText: "FIND YOUR PROTECTOR",
@@ -153,12 +154,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (heroTitle && heroDesc && heroCta) {
                 const content = heroContent[index];
 
+                clearTimeout(heroContentTimeout);
+
                 // Add fade-out effect
                 heroTitle.style.opacity = '0';
                 heroDesc.style.opacity = '0';
                 heroCta.style.opacity = '0';
 
-                setTimeout(() => {
+                heroContentTimeout = setTimeout(() => {
                     // Update content
                     heroTitle.innerHTML = content.title;
                     heroDesc.textContent = content.description;
@@ -207,11 +210,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Auto Play
         function startHeroTimer() {
+            clearInterval(heroSlideTimer);
             heroSlideTimer = setInterval(nextHeroSlide, heroSlideInterval);
         }
 
         function resetHeroTimer() {
-            clearInterval(heroSlideTimer);
             startHeroTimer();
         }
 
@@ -321,6 +324,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const dogPrev = document.querySelector('.prev-dog');
 
     let dogIndex = 0;
+    // FIX #1: Declare early so event listeners can always access it
+    let dogAutoScroll = null;
 
     const getSliderConfig = () => {
         if (!dogTrack || !dogContainer) return null;
@@ -344,14 +349,14 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', () => {
             config = getSliderConfig();
             if (config) {
-                dogTrack.style.transition = 'none'; // Disable transition during resize
+                dogTrack.style.transition = 'none';
                 dogTrack.style.transform = `translateX(${-dogIndex * config.itemWidth}px)`;
                 setTimeout(() => dogTrack.style.transition = '', 50);
             }
         });
 
         const moveDogSlide = (direction) => {
-            config = getSliderConfig(); // Always get fresh config for mobile accuracy
+            config = getSliderConfig();
             if (!config) return;
 
             const { itemWidth, visibleItems, totalItems } = config;
@@ -371,18 +376,30 @@ document.addEventListener('DOMContentLoaded', () => {
             dogTrack.style.transform = `translateX(${-dogIndex * itemWidth}px)`;
         };
 
+        // FIX #2: Helper to start/restart auto-scroll cleanly (no duplicate intervals)
+        const startDogAutoScroll = () => {
+            clearInterval(dogAutoScroll);
+            dogAutoScroll = setInterval(() => moveDogSlide('next'), 5000);
+        };
+
+        // FIX #3: Arrow clicks now restart auto-scroll after a brief pause
         if (dogNext) dogNext.addEventListener('click', () => {
             clearInterval(dogAutoScroll);
             moveDogSlide('next');
+            startDogAutoScroll();
         });
         if (dogPrev) dogPrev.addEventListener('click', () => {
             clearInterval(dogAutoScroll);
             moveDogSlide('prev');
+            startDogAutoScroll();
         });
 
-        let dogAutoScroll = setInterval(() => moveDogSlide('next'), 5000);
-
+        // FIX #4: mouseenter stops, mouseleave RESTARTS auto-scroll
         dogContainer.addEventListener('mouseenter', () => clearInterval(dogAutoScroll));
+        dogContainer.addEventListener('mouseleave', () => startDogAutoScroll());
+
+        // Start auto-scroll initially
+        startDogAutoScroll();
 
         // --- Touch / Swipe Support for Dog Slider ---
         let touchStartX = 0;
@@ -399,7 +416,6 @@ document.addEventListener('DOMContentLoaded', () => {
         dogContainer.addEventListener('touchmove', (e) => {
             const deltaX = e.touches[0].clientX - touchStartX;
             const deltaY = e.touches[0].clientY - touchStartY;
-            // If horizontal movement is dominant, flag as swipe and prevent page scroll
             if (Math.abs(deltaX) > Math.abs(deltaY)) {
                 isSwiping = true;
                 e.preventDefault();
@@ -412,13 +428,13 @@ document.addEventListener('DOMContentLoaded', () => {
             // Dynamic threshold: 10% of screen width, min 30px — works on 320px phones
             const swipeThreshold = Math.max(30, window.innerWidth * 0.10);
             if (deltaX < -swipeThreshold) {
-                moveDogSlide('next'); // swipe left → go forward
+                moveDogSlide('next');
             } else if (deltaX > swipeThreshold) {
-                moveDogSlide('prev'); // swipe right → go back
+                moveDogSlide('prev');
             }
             isSwiping = false;
-            // Restart auto-scroll after user finishes swiping
-            dogAutoScroll = setInterval(() => moveDogSlide('next'), 5000);
+            // FIX: Restart auto-scroll cleanly (no duplicates)
+            startDogAutoScroll();
         }, { passive: true });
     }
 
