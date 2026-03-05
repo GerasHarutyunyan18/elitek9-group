@@ -123,6 +123,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hero content variations for each slide
     const heroContent = [
         {
+            // Slide 3: Elite Dogs for Sale
+            title: "ELITE PROTECTION DOGS<br>FOR SALE",
+            description: "Don’t just get a dog—get peace of mind. Our elite protection dogs are trained, tested, and ready to guard your home and family from day one. Smart, loyal, and dependable—find your ultimate family protector in Los Angeles today.",
+            ctaText: "FIND YOUR PROTECTOR",
+            ctaLink: "available-dogs.html"
+        },
+        {
             // Slide 1: Aggression & Behavior Modification
             title: "TURN AGGRESSIVE<br>INTO CALM,<br>TRUSTED BEHAVIOR",
             description: "Tired of your dog's out-of-control behavior? Our trainers help dogs chill out, stop reacting, and become the reliable buddy you’ve always wanted. Let’s get your dog and your life back on track—start today!",
@@ -135,14 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
             description: "Imagine a dog that’s calm, reliable, and always looking out for your family. Our in-home and intensive training programs help dogs build confidence, master obedience, and become the trusted companion every household needs. Start your journey to a safer, happier home today",
             ctaText: "Choose Training Program",
             ctaLink: "services.html"
-        },
-        {
-            // Slide 3: Elite Dogs for Sale
-            title: "ELITE PROTECTION DOGS<br>FOR SALE",
-            description: "Don’t just get a dog—get peace of mind. Our elite protection dogs are trained, tested, and ready to guard your home and family from day one. Smart, loyal, and dependable—find your ultimate family protector in Los Angeles today.",
-            ctaText: "FIND YOUR PROTECTOR",
-            ctaLink: "available-dogs.html"
         }
+
     ];
 
     if (heroSlides.length > 0) {
