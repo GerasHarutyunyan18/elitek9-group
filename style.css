@@ -1745,17 +1745,40 @@ footer {
 
 .description-block {
     margin-bottom: 30px;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 2px solid var(--bg-light);
 }
 
+/* larger headings */
 .description-block h3 {
-    font-size: 1.3rem;
+    font-size: 2.4rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    text-align: center;
+}
+
+.description-block h4 {
+    font-size: 1.4rem;
+    margin-top: 25px;
     margin-bottom: 15px;
+    color: var(--dark-gray);
+    font-weight: 600;
+    text-align: center;
 }
 
 .description-block p {
     margin-bottom: 15px;
     color: var(--text-light);
+    line-height: 1.8;
 }
+
+.description-block strong {
+    color: var(--dark-gray);
+}
+
+
 
 .details-list ul {
     list-style: none;
@@ -4909,6 +4932,7 @@ body {
 }
 
 @media (max-width: 768px) {
+
     .payment-plans-banner {
         padding: 60px 0;
     }
@@ -4940,4 +4964,23 @@ body {
     .filter-tabs {
         margin-bottom: 20px !important;
     }
+}
+@media (max-width: 1000px) {
+    .mobile-gallery{
+        display: flex !important;
+    }
+    .desktop-gallery{
+        display: none;
+    }
+    .thumb{
+      min-width: 80px;
+      max-width: 80px;
+    }
+}
+
+.mobile-gallery{
+    display: none;
+}
+.desktop-gallery{
+    margin-top: 40px;
 }
