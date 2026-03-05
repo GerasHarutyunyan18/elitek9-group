@@ -77,6 +77,12 @@ img {
     padding: 80px 0;
 }
 
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 150px 0 !important;
+    }
+}
+
 .text-center {
     text-align: center;
 }
@@ -3047,6 +3053,10 @@ footer {
         min-height: 500px;
     }
 
+    .section-padding {
+        padding: 150px o;
+    }
+
     .hero-main-title {
         font-size: 2.5rem;
     }
@@ -4745,6 +4755,7 @@ body {
     }
 }
 
+
 /* =========================================
    Flexible Payment Plans Banner
    ========================================= */
@@ -4911,5 +4922,22 @@ body {
         width: 100%;
         justify-content: center;
         max-width: 280px;
+    }
+
+    /* Mobile adjustments for Page Headers */
+    .page-header {
+        padding: 30px 0 !important;
+        margin-top: 90px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .page-header h1 {
+        font-size: 1.5rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .filter-tabs {
+        margin-bottom: 20px !important;
     }
 }
