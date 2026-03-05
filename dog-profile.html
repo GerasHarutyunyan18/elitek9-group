@@ -126,7 +126,7 @@
                             <span id="dogSexDisplay">Sex</span>
                         </div>
                         <div class="stat-box">
-                            <label>Training</label>
+                            <label id="dogTrainingLabel">Training</label>
                             <span id="dogTrainingDisplay">Training</span>
                         </div>
                     </div>
@@ -312,7 +312,7 @@
                 breed: 'German Short Pointer',
                 born: 'April 2024',
                 sex: 'Male',
-                training: '',
+                training: 'Bomb Detection',
                 description: '<strong>Athletic. Aware. Mission-ready.</strong><br><br>Bex brings speed, intelligence, and clarity into one reliable protection companion. His obedience is sharp, his protection work is controlled, and his temperament is social and approachable.<br><br>✔ Responsive obedience<br>✔ Controlled protection | Solid foundation<br>✔ Bomb detection capable<br>✔ Clear-headed and stable<br>✔ Easy to live with, confident in public environments<br><br>Bex is ideal for active handlers who want dependable protection and detection capability without pressure or unnecessary aggression.Limited availability.',
                 images: ['assets/Dogs/Bex-2-German-Short-Pointer-DetectionBomb-Dog/German Short Pointer-Dogs-For-Sale-California-Los-Angeles-Male-Bex-Best-treiner-k9-protection-dog.jpg',
                     'assets/Dogs/Bex-2-German-Short-Pointer-DetectionBomb-Dog/German Short Pointer-Dogs-For-Sale-California-Los-Angeles-Male-Bex-Best-treiner-k9-protection-dog1.jpg',
@@ -487,7 +487,12 @@
             document.getElementById('dogBreedDisplay').innerText = dog.breed;
             document.getElementById('dogAgeDisplay').innerText = dog.born;
             document.getElementById('dogSexDisplay').innerText = dog.sex;
-            document.getElementById('dogTrainingDisplay').innerText = dog.training;
+            if (dog.training) {
+                document.getElementById('dogTrainingDisplay').innerText = dog.training;
+            } else {
+                document.getElementById('dogTrainingLabel').style.display = 'none';
+                document.getElementById('dogTrainingDisplay').style.display = 'none';
+            }
             document.getElementById('aboutTitle').innerText = `About ${dog.name}`;
             document.getElementById('dogDescription').innerHTML = `<p>${dog.description}</p>`;
             document.getElementById('inquiryBtn').innerText = `Call us today to learn more about ${dog.name}`;
