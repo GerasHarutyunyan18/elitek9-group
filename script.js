@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'consultation',
             'dog-profile',
             'elite-1',
+            'professional-k9-training-los-angeles',
             'elite-2',
             'elite-3',
             'future-breeding',
