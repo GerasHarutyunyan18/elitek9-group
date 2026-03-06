@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'elite-2',
             'elite-3',
             'future-breeding',
+            'dog-breeding-los-angeles-ca',
             'nutrition-for-working-dogs',
             'protection-dogs-myth',
             'services',
