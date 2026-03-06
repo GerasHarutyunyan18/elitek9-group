@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'services',
             'thank-you',
             'training',
+            'protection-dog-training-los-angeles',
             'understanding-dog-body-language',
             'voice'
         ]);
@@ -210,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "TURN AGGRESSIVE<br>INTO CALM,<br>TRUSTED BEHAVIOR",
             description: "Tired of your dog's out-of-control behavior? Our trainers help dogs chill out, stop reacting, and become the reliable buddy you’ve always wanted. Let’s get your dog and your life back on track—start today!",
             ctaText: "GET SUPPORT TODAY",
-            ctaLink: "training.html"
+            ctaLink: "protection-dog-training-los-angeles"
         },
         {
             // Slide 2: Family Protection & Obedience
