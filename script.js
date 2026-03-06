@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'available-dogs',
             'protection-dogs-for-sale',
             'blog',
+            'elitk9-blog-los-angeles',
             'blog-post-1',
             'bringing-puppy-home',
             'consultation',
