@@ -37,6 +37,20 @@
             }
         })();
     </script>
+    <script>
+        // Backward-compatible redirect for old behavioral hash URL.
+        (function () {
+            var isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            if (isLocal) return;
+            var path = window.location.pathname;
+            var hash = (window.location.hash || '').toLowerCase();
+            var isServicesPage = path === '/protection-dog-services' || path === '/protection-dog-services.html' || path === '/services' || path === '/services.html';
+            if (!isServicesPage) return;
+            if (hash === '#behavior-booking') {
+                window.location.replace('/behavioral-modification-dog-training-los-angeles' + window.location.search);
+            }
+        })();
+    </script>
     <script type="application/ld+json">
 {
     "@context":  "https://schema.org",
