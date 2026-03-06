@@ -576,8 +576,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Trainer Avatars in Phone Modal ---
     const trainerAvatarByPhone = {
-        "18183573797": "assets/images/Voskan-img-person.png",
-        "14244246444": "assets/images/Simon-img-person.png"
+        "18183573797": "assets/images/Voskan-img-person-112.jpg",
+        "14244246444": "assets/images/Simon-img-person-112.jpg"
     };
 
     document.querySelectorAll('.trainer-call-btn').forEach((trainerBtn) => {
@@ -602,6 +602,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
         trainerBtn.insertBefore(avatarImg, trainerInfo);
     });
+
+    // --- Deferred Video Source Loading ---
+    // Load heavy videos only when they approach viewport to reduce initial page weight.
+    const deferredVideos = Array.from(document.querySelectorAll('video[data-src]'));
+    if (deferredVideos.length > 0) {
+        const activateVideoSource = (videoEl) => {
+            const source = videoEl.getAttribute('data-src');
+            if (!source) return;
+
+            videoEl.setAttribute('src', source);
+            videoEl.removeAttribute('data-src');
+            videoEl.load();
+
+            if (videoEl.hasAttribute('autoplay')) {
+                const playPromise = videoEl.play();
+                if (playPromise && typeof playPromise.catch === 'function') {
+                    playPromise.catch(() => { });
+                }
+            }
+        };
+
+        if ('IntersectionObserver' in window) {
+            const videoObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    activateVideoSource(entry.target);
+                    observer.unobserve(entry.target);
+                });
+            }, {
+                root: null,
+                rootMargin: '300px 0px',
+                threshold: 0.01
+            });
+
+            deferredVideos.forEach((videoEl) => videoObserver.observe(videoEl));
+        } else {
+            deferredVideos.forEach((videoEl) => activateVideoSource(videoEl));
+        }
+    }
     // --- Phone Modal Toggle ---
     const phoneBtn = document.getElementById('floatPhoneBtn');
     const phoneModal = document.getElementById('phoneModal');
@@ -650,6 +689,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
 
 
 
