@@ -177,13 +177,13 @@
     <nav class="navbar-new">
         <div class="container navbar-container">
             <!-- Logo Section -->
-            <a href="index.html" class="logo-new">
+            <a href="/" class="logo-new">
                 <img src="assets/images/logo-k9-new-v02.png" alt="Elite K9 Group Logo" class="logo-image" loading="eager" fetchpriority="high" decoding="async" width="300" height="85">
             </a>
 
             <!-- Navigation Links -->
             <ul class="nav-links-new">
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="/" class="active">Home</a></li>
                 <li class="has-dropdown">
                     <a href="training">Training</a>
                 </li>
@@ -795,7 +795,7 @@
             <div class="container footer-grid">
                 <!-- Column 1: Logo + Contact Info -->
                 <div class="footer-brand">
-                    <a href="index.html" class="footer-logo">
+                    <a href="/" class="footer-logo">
                         <img src="assets/images/logo-k9-new-v02.png" alt="Elite K9 Group Logo"
                             class="footer-logo-image" loading="eager" fetchpriority="high" decoding="async" width="300" height="85">
                     </a>
@@ -826,7 +826,7 @@
                 <div class="footer-nav">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li><a href="training">Training</a></li>
                         <li><a href="services">Services</a></li>
                         <li><a href="available-dogs">Dogs for Sale</a></li>
@@ -918,6 +918,12 @@
         </div>
         <script src="voice-ai.js"></script>
 
+        <script>
+            // Keep homepage URL canonical in browser bar: / instead of /index.html
+            if (window.location.pathname === '/index.html') {
+                window.history.replaceState(null, '', '/' + window.location.search + window.location.hash);
+            }
+        </script>
         <script src="script.js"></script>
 </body>
 
