@@ -573,6 +573,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     }
 
+
+    // --- Trainer Avatars in Phone Modal ---
+    const trainerAvatarByPhone = {
+        "18183573797": "assets/images/Voskan-img-person.png",
+        "14244246444": "assets/images/Simon-img-person.png"
+    };
+
+    document.querySelectorAll('.trainer-call-btn').forEach((trainerBtn) => {
+        if (trainerBtn.querySelector('.trainer-avatar')) return;
+
+        const href = trainerBtn.getAttribute('href') || '';
+        const digitsOnly = href.replace(/\D/g, '');
+        const avatarSrc = trainerAvatarByPhone[digitsOnly];
+        const trainerInfo = trainerBtn.querySelector('.trainer-info');
+
+        if (!avatarSrc || !trainerInfo) return;
+
+        const trainerName = (trainerInfo.querySelector('.trainer-name')?.textContent || 'Trainer').trim();
+        const avatarImg = document.createElement('img');
+        avatarImg.className = 'trainer-avatar';
+        avatarImg.src = avatarSrc;
+        avatarImg.alt = `${trainerName} avatar`;
+        avatarImg.loading = 'lazy';
+        avatarImg.decoding = 'async';
+        avatarImg.width = 56;
+        avatarImg.height = 56;
+
+        trainerBtn.insertBefore(avatarImg, trainerInfo);
+    });
     // --- Phone Modal Toggle ---
     const phoneBtn = document.getElementById('floatPhoneBtn');
     const phoneModal = document.getElementById('phoneModal');
@@ -621,4 +650,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+
 
