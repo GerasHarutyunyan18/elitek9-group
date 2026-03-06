@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'services',
             'protection-dog-services',
             'behavioral-modification-dog-training-los-angeles',
+            'dog-obedience-training-los-angeles',
             'thank-you',
             'training',
             'protection-dog-training-los-angeles',

@@ -38,7 +38,7 @@
         })();
     </script>
     <script>
-        // Backward-compatible redirect for old behavioral hash URL.
+        // Backward-compatible redirect for old behavioral/obedience hash URLs.
         (function () {
             var isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
             if (isLocal) return;
@@ -48,6 +48,8 @@
             if (!isServicesPage) return;
             if (hash === '#behavior-booking') {
                 window.location.replace('/behavioral-modification-dog-training-los-angeles' + window.location.search);
+            } else if (hash === '#obedience-booking') {
+                window.location.replace('/dog-obedience-training-los-angeles' + window.location.search);
             }
         })();
     </script>
