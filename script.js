@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'professional-k9-training-los-angeles',
             'elite-2',
             'communication-and-protection-dog-training-los-angeles',
+            'foundation-communication-and-protection-dog-training-los-angeles',
             'elite-3',
             'future-breeding',
             'dog-breeding-los-angeles-ca',
