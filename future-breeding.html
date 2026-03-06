@@ -29,25 +29,127 @@
     <script type="application/ld+json">
 {
     "@context":  "https://schema.org",
-    "@type":  "WebPage",
-    "name":  "Future Breeding | Elite K9 Group",
-    "description":  "Upcoming litters and planned breedings. Reserve your future family guardian or competition dog.",
-    "url":  "https://elitek9group.com/future-breeding.html",
-    "inLanguage":  "en-US",
-    "isPartOf":  {
-                     "@type":  "WebSite",
-                     "name":  "Elite K9 Group",
-                     "url":  "https://elitek9group.com/"
-                 },
-    "publisher":  {
-                      "@type":  "Organization",
-                      "name":  "Elite K9 Group",
-                      "url":  "https://elitek9group.com/",
-                      "logo":  {
-                                   "@type":  "ImageObject",
-                                   "url":  "https://elitek9group.com/apple-touch-icon.png"
-                               }
-                  }
+    "@graph":  [
+                   {
+                       "@type":  "Organization",
+                       "@id":  "https://elitek9group.com/#organization",
+                       "name":  "Elite K9 Group",
+                       "url":  "https://elitek9group.com/",
+                       "logo":  {
+                                    "@type":  "ImageObject",
+                                    "url":  "https://elitek9group.com/apple-touch-icon.png"
+                                },
+                       "sameAs":  [
+                                      "https://www.instagram.com/elite_k9_group/"
+                                  ],
+                       "contactPoint":  [
+                                            {
+                                                "@type":  "ContactPoint",
+                                                "telephone":  "+1-818-357-3797",
+                                                "contactType":  "customer service",
+                                                "areaServed":  "US",
+                                                "availableLanguage":  [
+                                                                          "en"
+                                                                      ]
+                                            },
+                                            {
+                                                "@type":  "ContactPoint",
+                                                "telephone":  "+1-424-424-6444",
+                                                "contactType":  "customer service",
+                                                "areaServed":  "US",
+                                                "availableLanguage":  [
+                                                                          "en"
+                                                                      ]
+                                            }
+                                        ]
+                   },
+                   {
+                       "@type":  "LocalBusiness",
+                       "@id":  "https://elitek9group.com/#localbusiness",
+                       "name":  "Elite K9 Group",
+                       "url":  "https://elitek9group.com/",
+                       "image":  "https://elitek9group.com/og-image.jpg",
+                       "telephone":  "+1-818-357-3797",
+                       "priceRange":  "$$",
+                       "address":  {
+                                       "@type":  "PostalAddress",
+                                       "streetAddress":  "13238 Riverside Dr",
+                                       "addressLocality":  "Sherman Oaks",
+                                       "addressRegion":  "CA",
+                                       "postalCode":  "91423",
+                                       "addressCountry":  "US"
+                                   },
+                       "openingHoursSpecification":  [
+                                                         {
+                                                             "@type":  "OpeningHoursSpecification",
+                                                             "dayOfWeek":  [
+                                                                               "Monday",
+                                                                               "Tuesday",
+                                                                               "Wednesday",
+                                                                               "Thursday",
+                                                                               "Friday"
+                                                                           ],
+                                                             "opens":  "09:00",
+                                                             "closes":  "17:00"
+                                                         },
+                                                         {
+                                                             "@type":  "OpeningHoursSpecification",
+                                                             "dayOfWeek":  [
+                                                                               "Saturday",
+                                                                               "Sunday"
+                                                                           ],
+                                                             "opens":  "09:00",
+                                                             "closes":  "16:00"
+                                                         }
+                                                     ],
+                       "areaServed":  "Los Angeles County",
+                       "parentOrganization":  {
+                                                  "@id":  "https://elitek9group.com/#organization"
+                                              }
+                   },
+                   {
+                       "@type":  "WebSite",
+                       "@id":  "https://elitek9group.com/#website",
+                       "url":  "https://elitek9group.com/",
+                       "name":  "Elite K9 Group",
+                       "publisher":  {
+                                         "@id":  "https://elitek9group.com/#organization"
+                                     },
+                       "inLanguage":  "en-US"
+                   },
+                   {
+                       "@type":  "WebPage",
+                       "@id":  "https://elitek9group.com/future-breeding.html",
+                       "url":  "https://elitek9group.com/future-breeding.html",
+                       "name":  "Future Breeding | Elite K9 Group",
+                       "description":  "Upcoming litters and planned breedings. Reserve your future family guardian or competition dog.",
+                       "isPartOf":  {
+                                        "@id":  "https://elitek9group.com/#website"
+                                    },
+                       "about":  {
+                                     "@id":  "https://elitek9group.com/#localbusiness"
+                                 },
+                       "inLanguage":  "en-US"
+                   },
+                   {
+                       "@type":  "BreadcrumbList",
+                       "@id":  "https://elitek9group.com/future-breeding.html#breadcrumb",
+                       "itemListElement":  [
+                                               {
+                                                   "@type":  "ListItem",
+                                                   "position":  1,
+                                                   "name":  "Home",
+                                                   "item":  "https://elitek9group.com/"
+                                               },
+                                               {
+                                                   "@type":  "ListItem",
+                                                   "position":  2,
+                                                   "name":  "Future Breeding",
+                                                   "item":  "https://elitek9group.com/future-breeding.html"
+                                               }
+                                           ]
+                   }
+               ]
 }
     </script>
 </head>

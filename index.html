@@ -34,25 +34,139 @@
     <script type="application/ld+json">
 {
     "@context":  "https://schema.org",
-    "@type":  "WebPage",
-    "name":  "Dog Training and Protection Dogs in Los Angeles | Elite K9 Group",
-    "description":  "Elite K9 Group offers dog training in Los Angeles: obedience, behavior work, board and train, service dog programs, and trained protection dogs for sale.",
-    "url":  "https://elitek9group.com/",
-    "inLanguage":  "en-US",
-    "isPartOf":  {
-                     "@type":  "WebSite",
-                     "name":  "Elite K9 Group",
-                     "url":  "https://elitek9group.com/"
-                 },
-    "publisher":  {
-                      "@type":  "Organization",
-                      "name":  "Elite K9 Group",
-                      "url":  "https://elitek9group.com/",
-                      "logo":  {
-                                   "@type":  "ImageObject",
-                                   "url":  "https://elitek9group.com/apple-touch-icon.png"
-                               }
-                  }
+    "@graph":  [
+                   {
+                       "@type":  "Organization",
+                       "@id":  "https://elitek9group.com/#organization",
+                       "name":  "Elite K9 Group",
+                       "url":  "https://elitek9group.com/",
+                       "logo":  {
+                                    "@type":  "ImageObject",
+                                    "url":  "https://elitek9group.com/apple-touch-icon.png"
+                                },
+                       "sameAs":  [
+                                      "https://www.instagram.com/elite_k9_group/"
+                                  ],
+                       "contactPoint":  [
+                                            {
+                                                "@type":  "ContactPoint",
+                                                "telephone":  "+1-818-357-3797",
+                                                "contactType":  "customer service",
+                                                "areaServed":  "US",
+                                                "availableLanguage":  [
+                                                                          "en"
+                                                                      ]
+                                            },
+                                            {
+                                                "@type":  "ContactPoint",
+                                                "telephone":  "+1-424-424-6444",
+                                                "contactType":  "customer service",
+                                                "areaServed":  "US",
+                                                "availableLanguage":  [
+                                                                          "en"
+                                                                      ]
+                                            }
+                                        ]
+                   },
+                   {
+                       "@type":  "LocalBusiness",
+                       "@id":  "https://elitek9group.com/#localbusiness",
+                       "name":  "Elite K9 Group",
+                       "url":  "https://elitek9group.com/",
+                       "image":  "https://elitek9group.com/og-image.jpg",
+                       "telephone":  "+1-818-357-3797",
+                       "priceRange":  "$$",
+                       "address":  {
+                                       "@type":  "PostalAddress",
+                                       "streetAddress":  "13238 Riverside Dr",
+                                       "addressLocality":  "Sherman Oaks",
+                                       "addressRegion":  "CA",
+                                       "postalCode":  "91423",
+                                       "addressCountry":  "US"
+                                   },
+                       "openingHoursSpecification":  [
+                                                         {
+                                                             "@type":  "OpeningHoursSpecification",
+                                                             "dayOfWeek":  [
+                                                                               "Monday",
+                                                                               "Tuesday",
+                                                                               "Wednesday",
+                                                                               "Thursday",
+                                                                               "Friday"
+                                                                           ],
+                                                             "opens":  "09:00",
+                                                             "closes":  "17:00"
+                                                         },
+                                                         {
+                                                             "@type":  "OpeningHoursSpecification",
+                                                             "dayOfWeek":  [
+                                                                               "Saturday",
+                                                                               "Sunday"
+                                                                           ],
+                                                             "opens":  "09:00",
+                                                             "closes":  "16:00"
+                                                         }
+                                                     ],
+                       "areaServed":  "Los Angeles County",
+                       "parentOrganization":  {
+                                                  "@id":  "https://elitek9group.com/#organization"
+                                              }
+                   },
+                   {
+                       "@type":  "WebSite",
+                       "@id":  "https://elitek9group.com/#website",
+                       "url":  "https://elitek9group.com/",
+                       "name":  "Elite K9 Group",
+                       "publisher":  {
+                                         "@id":  "https://elitek9group.com/#organization"
+                                     },
+                       "inLanguage":  "en-US"
+                   },
+                   {
+                       "@type":  "WebPage",
+                       "@id":  "https://elitek9group.com/",
+                       "url":  "https://elitek9group.com/",
+                       "name":  "Dog Training and Protection Dogs in Los Angeles | Elite K9 Group",
+                       "description":  "Elite K9 Group offers dog training in Los Angeles: obedience, behavior work, board and train, service dog programs, and trained protection dogs for sale.",
+                       "isPartOf":  {
+                                        "@id":  "https://elitek9group.com/#website"
+                                    },
+                       "about":  {
+                                     "@id":  "https://elitek9group.com/#localbusiness"
+                                 },
+                       "inLanguage":  "en-US"
+                   },
+                   {
+                       "@type":  "FAQPage",
+                       "@id":  "https://elitek9group.com/#faq",
+                       "mainEntity":  [
+                                          {
+                                              "@type":  "Question",
+                                              "name":  "What is the dog training cost and service dog training cost?",
+                                              "acceptedAnswer":  {
+                                                                     "@type":  "Answer",
+                                                                     "text":  "Our pricing depends on the program. We offer board and train, private lessons, and service dog programs. Contact our trainers for a tailored quote based on your dog and goals."
+                                                                 }
+                                          },
+                                          {
+                                              "@type":  "Question",
+                                              "name":  "Do you offer training for aggressive dogs?",
+                                              "acceptedAnswer":  {
+                                                                     "@type":  "Answer",
+                                                                     "text":  "Yes. We provide behavior modification for reactivity and aggression, using structured training plans focused on safety, control, and long-term stability."
+                                                                 }
+                                          },
+                                          {
+                                              "@type":  "Question",
+                                              "name":  "Do you have Belgian Malinois trained dogs for sale or German Shepherd puppies?",
+                                              "acceptedAnswer":  {
+                                                                     "@type":  "Answer",
+                                                                     "text":  "Yes. We regularly offer trained protection dogs and occasionally puppies. Availability changes, so contact us for current options and placement details."
+                                                                 }
+                                          }
+                                      ]
+                   }
+               ]
 }
     </script>
 </head>
