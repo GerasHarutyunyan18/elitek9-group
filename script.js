@@ -1,5 +1,81 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- Local Dev URL Adapter ---
+    // Live Server serves physical files and does not resolve extensionless routes like /training.
+    // On localhost only, convert known extensionless page links to .html equivalents.
+    const isLocalDevHost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    if (isLocalDevHost) {
+        const extensionlessPages = new Set([
+            'available-dogs',
+            'blog',
+            'blog-post-1',
+            'bringing-puppy-home',
+            'consultation',
+            'dog-profile',
+            'elite-1',
+            'elite-2',
+            'elite-3',
+            'future-breeding',
+            'nutrition-for-working-dogs',
+            'protection-dogs-myth',
+            'services',
+            'thank-you',
+            'training',
+            'understanding-dog-body-language',
+            'voice'
+        ]);
+
+        const rewriteForLocalDev = (href) => {
+            if (!href) return href;
+            if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) {
+                return href;
+            }
+
+            const matched = href.match(/^([^?#]*)(\?[^#]*)?(#.*)?$/);
+            if (!matched) return href;
+
+            const basePath = matched[1] || '';
+            const query = matched[2] || '';
+            const hash = matched[3] || '';
+
+            if (!basePath || basePath === '/' || basePath.endsWith('/')) return href;
+
+            const isAbsolute = /^https?:\/\//i.test(basePath);
+            let pathPart = basePath;
+
+            if (isAbsolute) {
+                try {
+                    const parsed = new URL(basePath);
+                    // Only rewrite links that point to this project domain.
+                    if (parsed.hostname !== 'elitek9group.com' && parsed.hostname !== window.location.hostname) {
+                        return href;
+                    }
+                    pathPart = parsed.pathname;
+                } catch (e) {
+                    return href;
+                }
+            }
+
+            const hasLeadingSlash = pathPart.startsWith('/');
+            const normalized = hasLeadingSlash ? pathPart.slice(1) : pathPart;
+            const lastSegment = normalized.split('/').pop() || '';
+
+            if (!extensionlessPages.has(normalized)) return href;
+            if (lastSegment.includes('.')) return href;
+
+            const rewrittenPath = `${hasLeadingSlash ? '/' : ''}${normalized}.html`;
+            return `${rewrittenPath}${query}${hash}`;
+        };
+
+        document.querySelectorAll('a[href]').forEach((anchor) => {
+            const href = anchor.getAttribute('href');
+            const rewritten = rewriteForLocalDev(href);
+            if (rewritten !== href) {
+                anchor.setAttribute('href', rewritten);
+            }
+        });
+    }
+
     // --- Mobile Navigation ---
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links-new') || document.querySelector('.nav-links');
