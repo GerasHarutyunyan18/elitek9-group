@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'nutrition-for-working-dogs',
             'protection-dogs-myth',
             'services',
+            'protection-dog-services',
             'thank-you',
             'training',
             'protection-dog-training-los-angeles',
@@ -218,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "BOARD & TRAIN<br>PROGRAMS",
             description: "Imagine a dog that’s calm, reliable, and always looking out for your family. Our in-home and intensive training programs help dogs build confidence, master obedience, and become the trusted companion every household needs. Start your journey to a safer, happier home today",
             ctaText: "Choose Training Program",
-            ctaLink: "services.html"
+            ctaLink: "protection-dog-services"
         }
 
     ];
