@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'communication-and-protection-dog-training-los-angeles',
             'foundation-communication-and-protection-dog-training-los-angeles',
             'elite-3',
+            'professional-advanced-protection-dog-training-los-angeles',
             'future-breeding',
             'dog-breeding-los-angeles-ca',
             'nutrition-for-working-dogs',
@@ -620,3 +621,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
