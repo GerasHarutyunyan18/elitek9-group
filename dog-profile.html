@@ -99,7 +99,13 @@
                 <!-- Main Gallery -->
                 <div class="profile-gallery">
                     <div class="main-image" id="mainImageContainer">
+                        <button class="gallery-nav prev" id="prevBtn" aria-label="Previous image">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
                         <img src="" alt="Dog Profile" id="mainImageDisplay">
+                        <button class="gallery-nav next" id="nextBtn" aria-label="Next image">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
                     </div>
                     <div class="gallery-thumbs mobile-gallery " id="galleryThumbsMobile"></div>
                 </div>
@@ -131,9 +137,9 @@
                         </div>
                     </div>
 
-                            <div class="action-buttons" style="margin-top: 30px;">
+                    <div class="action-buttons" style="margin-top: 30px;">
                         <a href="#" class="btn-primary full-width" id="inquiryBtn">Inquire Today</a>
-                         <div class="gallery-thumbs desktop-gallery" id="galleryThumbs"></div>
+                        <div class="gallery-thumbs desktop-gallery" id="galleryThumbs"></div>
                     </div>
 
                 </div>
@@ -510,6 +516,27 @@
                 // Initial load
                 changeImage(0, dog.images);
 
+                // Button Click Events
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+
+                if (dog.images.length > 1) {
+                    prevBtn.style.display = 'flex';
+                    nextBtn.style.display = 'flex';
+
+                    prevBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        changeImage(currentImageIndex - 1, dog.images);
+                    };
+                    nextBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        changeImage(currentImageIndex + 1, dog.images);
+                    };
+                } else {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                }
+
                 // Clear and build thumbs
                 galleryThumbs.innerHTML = '';
                 dog.images.forEach((imgName, index) => {
@@ -526,45 +553,45 @@
 
                 const galleryThumbsMobile = document.getElementById('galleryThumbsMobile');
 
-            if (dog.images && dog.images.length > 0) {
-                // Initial load
-                changeImage(0, dog.images);
+                if (dog.images && dog.images.length > 0) {
+                    // Initial load
+                    changeImage(0, dog.images);
 
-                // Clear and build thumbs
-                galleryThumbsMobile.innerHTML = '';
-                dog.images.forEach((imgName, index) => {
-                    const thumb = document.createElement('div');
-                    thumb.classList.add('thumb');
+                    // Clear and build thumbs
+                    galleryThumbsMobile.innerHTML = '';
+                    dog.images.forEach((imgName, index) => {
+                        const thumb = document.createElement('div');
+                        thumb.classList.add('thumb');
 
-                    const imgPath = imgName.startsWith('assets/') ? imgName : `assets/images/${imgName}`;
-                    thumb.style.backgroundImage = `url('${imgPath}')`;
-                    thumb.onclick = () => changeImage(index, dog.images);
-                    galleryThumbsMobile.appendChild(thumb);
-                });
-                updateThumbnails(); 
-                // Touch Events for Swipe
-                mainImageContainer.addEventListener('touchstart', e => {
-                    touchStartX = e.changedTouches[0].screenX;
-                }, { passive: true });
+                        const imgPath = imgName.startsWith('assets/') ? imgName : `assets/images/${imgName}`;
+                        thumb.style.backgroundImage = `url('${imgPath}')`;
+                        thumb.onclick = () => changeImage(index, dog.images);
+                        galleryThumbsMobile.appendChild(thumb);
+                    });
+                    updateThumbnails();
+                    // Touch Events for Swipe
+                    mainImageContainer.addEventListener('touchstart', e => {
+                        touchStartX = e.changedTouches[0].screenX;
+                    }, { passive: true });
 
-                mainImageContainer.addEventListener('touchend', e => {
-                    touchEndX = e.changedTouches[0].screenX;
-                    handleSwipe();
-                }, { passive: true });
+                    mainImageContainer.addEventListener('touchend', e => {
+                        touchEndX = e.changedTouches[0].screenX;
+                        handleSwipe();
+                    }, { passive: true });
 
-                function handleSwipe() {
-                    const swipeThreshold = 50;
-                    if (touchEndX < touchStartX - swipeThreshold) {
-                        // Swipe Left -> Next Image
-                        changeImage(currentImageIndex + 1, dog.images);
-                    }
-                    if (touchEndX > touchStartX + swipeThreshold) {
-                        // Swipe Right -> Previous Image
-                        changeImage(currentImageIndex - 1, dog.images);
+                    function handleSwipe() {
+                        const swipeThreshold = 50;
+                        if (touchEndX < touchStartX - swipeThreshold) {
+                            // Swipe Left -> Next Image
+                            changeImage(currentImageIndex + 1, dog.images);
+                        }
+                        if (touchEndX > touchStartX + swipeThreshold) {
+                            // Swipe Right -> Previous Image
+                            changeImage(currentImageIndex - 1, dog.images);
+                        }
                     }
                 }
             }
-        }
             // Update Status Badge (default is Available)
             const statusBadge = document.getElementById('dogStatusBadge');
             if (dog.status) {

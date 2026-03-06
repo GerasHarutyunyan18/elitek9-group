@@ -1672,6 +1672,111 @@ footer {
     transform: scale(1.02);
 }
 
+/* Gallery Navigation Arrows */
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    color: var(--primary-orange);
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0.7;
+}
+
+.gallery-nav:hover {
+    background: var(--primary-orange);
+    color: white;
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.gallery-nav.prev {
+    left: 0px;
+}
+
+.gallery-nav.next {
+    right: 0px;
+}
+
+/* Responsive adjustment for small screens */
+
+
+@media (max-width: 576px) {
+    .gallery-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        background: rgba(255, 255, 255, 0.8);
+        opacity: 0.9;
+    }
+
+    .gallery-nav.prev {
+        left: 23px;
+    }
+
+    .gallery-nav.next {
+        right: 23px;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-nav.prev {
+        left: 31px;
+    }
+
+    .gallery-nav.next {
+        right: 31px;
+    }
+}
+
+/* Ultra small screens */
+@media (max-width: 320px) {
+    .gallery-nav {
+        width: 35px;
+        height: 35px;
+    }
+
+    .gallery-nav.prev {
+        left: 0px;
+    }
+
+    .gallery-nav.next {
+        right: 0px;
+    }
+
+}
+
+
+
+
+
+@media (max-width: 320px) {
+    .gallery-nav {
+        width: 35px;
+        height: 35px;
+    }
+
+    .gallery-nav.prev {
+        left: 0px;
+    }
+
+    .gallery-nav.next {
+        right: 0px;
+    }
+
+}
+
 .gallery-thumbs {
     display: flex;
     gap: 15px;
@@ -4965,22 +5070,26 @@ body {
         margin-bottom: 20px !important;
     }
 }
+
 @media (max-width: 1000px) {
-    .mobile-gallery{
+    .mobile-gallery {
         display: flex !important;
     }
-    .desktop-gallery{
+
+    .desktop-gallery {
         display: none;
     }
-    .thumb{
-      min-width: 80px;
-      max-width: 80px;
+
+    .thumb {
+        min-width: 80px;
+        max-width: 80px;
     }
 }
 
-.mobile-gallery{
+.mobile-gallery {
     display: none;
 }
-.desktop-gallery{
+
+.desktop-gallery {
     margin-top: 40px;
 }
