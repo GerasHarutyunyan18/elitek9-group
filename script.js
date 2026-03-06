@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isLocalDevHost) {
         const extensionlessPages = new Set([
             'available-dogs',
+            'protection-dogs-for-sale',
             'blog',
             'blog-post-1',
             'bringing-puppy-home',
@@ -205,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "ELITE PROTECTION DOGS<br>FOR SALE",
             description: "Don’t just get a dog—get peace of mind. Our elite protection dogs are trained, tested, and ready to guard your home and family from day one. Smart, loyal, and dependable—find your ultimate family protector in Los Angeles today.",
             ctaText: "FIND YOUR PROTECTOR",
-            ctaLink: "available-dogs.html"
+            ctaLink: "protection-dogs-for-sale"
         },
         {
             // Slide 1: Aggression & Behavior Modification
