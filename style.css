@@ -79,7 +79,7 @@ img {
 
 @media (max-width: 768px) {
     .section-padding {
-        padding: 150px 0 !important;
+        padding: 30px 0 !important;
     }
 }
 
@@ -1095,7 +1095,7 @@ footer {
 .page-header {
     background-color: var(--primary-orange);
     color: white;
-    padding: 60px 0;
+    padding: 30px 0;
     margin-top: 140px;
     margin-bottom: 40px;
 }
@@ -3199,7 +3199,7 @@ footer {
     }
 
     .section-padding {
-        padding: 150px o;
+        padding: 30px 0;
     }
 
     .hero-main-title {
@@ -5081,7 +5081,7 @@ body {
 @media (max-width: 768px) {
 
     .payment-plans-banner {
-        padding: 60px 0;
+        padding: 30px 0;
     }
 
     .payment-pills {
@@ -5161,6 +5161,8 @@ body {
         background: rgba(255, 107, 0, 0.08);
     }
 }
+
+
 
 
 
