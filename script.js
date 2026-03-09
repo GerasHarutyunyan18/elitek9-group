@@ -688,6 +688,34 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = 'hidden';
         });
     }
+    // --- Reliable Contact Deep-Link Fallback ---
+    // Some mobile in-app browsers can ignore the initial hash scroll.
+    const applyGetInTouchDeepLink = () => {
+        const hash = (window.location.hash || '').toLowerCase();
+        const params = new URLSearchParams(window.location.search);
+        const sectionParam = (params.get('section') || '').toLowerCase();
+        const shouldScroll = hash === '#get-in-touch' || sectionParam === 'get-in-touch' || sectionParam === 'contact';
+
+        if (!shouldScroll) return;
+
+        const target = document.getElementById('get-in-touch') || document.getElementById('contact');
+        if (!target) return;
+
+        const offset = window.innerWidth <= 768 ? 88 : 110;
+        const scrollToTarget = () => {
+            const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: Math.max(0, y), left: 0, behavior: 'auto' });
+        };
+
+        // Run multiple times to survive late layout shifts (fonts/images).
+        scrollToTarget();
+        setTimeout(scrollToTarget, 160);
+        setTimeout(scrollToTarget, 700);
+    };
+
+    applyGetInTouchDeepLink();
+    window.addEventListener('load', applyGetInTouchDeepLink);
+    window.addEventListener('hashchange', applyGetInTouchDeepLink);
 });
 
 
