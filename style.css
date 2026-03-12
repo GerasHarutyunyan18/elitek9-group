@@ -73,9 +73,10 @@ img {
     overflow: hidden;
 }
 
+/* 
 .section-padding {
-    padding: 80px 0;
-}
+ padding: 80px 0;
+}  */
 
 @media (max-width: 768px) {
     .section-padding {
@@ -1100,6 +1101,12 @@ footer {
     margin-bottom: 40px;
 }
 
+/* Blog hub pages: keep header flush under fixed navbar (no white gap). */
+.page-header.blog-hub-header {
+    margin-top: 140px;
+    padding-top: 30px;
+}
+
 .page-header h1 {
     color: white;
     font-size: 2.5rem;
@@ -1504,6 +1511,17 @@ footer {
     background-color: #f5f5f5;
     display: block;
     overflow: hidden;
+}
+
+.blog-image-link {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+}
+
+.blog-image-link:focus-visible {
+    outline: 3px solid var(--primary-orange);
+    outline-offset: -3px;
 }
 
 .blog-image img {
@@ -4510,6 +4528,7 @@ body {
     border: 2px solid #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
+
 .trainer-info {
     text-align: left;
     display: flex;
@@ -5102,6 +5121,12 @@ body {
         margin-bottom: 20px !important;
     }
 
+
+    .page-header.blog-hub-header {
+        margin-top: 90px !important;
+        padding-top: 30px !important;
+    }
+
     .page-header h1 {
         font-size: 1.5rem !important;
         line-height: 1.2 !important;
@@ -5161,8 +5186,3 @@ body {
         background: rgba(255, 107, 0, 0.08);
     }
 }
-
-
-
-
-
