@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'training',
             'protection-dog-training-los-angeles',
             'understanding-dog-body-language',
+            'crate-training-adult-dog-dog-training-near-me',
             'voice'
         ]);
 
