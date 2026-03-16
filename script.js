@@ -110,6 +110,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Make service cards clickable (same target as their button link) ---
+    const cardInteractiveSelector = 'a, button, input, textarea, select, label, summary';
+    document.querySelectorAll('.service-card').forEach((card) => {
+        const cardLink = card.querySelector('a[href]');
+        if (!cardLink) return;
+
+        card.classList.add('is-card-link');
+        card.setAttribute('role', 'link');
+        if (!card.hasAttribute('tabindex')) {
+            card.setAttribute('tabindex', '0');
+        }
+
+        const goToCardLink = (event) => {
+            if (!cardLink.href) return;
+
+            const openInNewTab = event && (event.ctrlKey || event.metaKey || event.button === 1);
+            if (openInNewTab) {
+                window.open(cardLink.href, '_blank', 'noopener');
+                return;
+            }
+
+            window.location.href = cardLink.href;
+        };
+
+        card.addEventListener('click', (event) => {
+            if (event.target.closest(cardInteractiveSelector)) return;
+            goToCardLink(event);
+        });
+
+        card.addEventListener('keydown', (event) => {
+            if (event.target !== card) return;
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            goToCardLink(event);
+        });
+    });
+
     // --- Navbar Scroll Behavior ---
     const navbar = document.querySelector('.navbar-new');
     if (navbar) {
