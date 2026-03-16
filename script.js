@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'protection-dog-training-los-angeles',
             'understanding-dog-body-language',
             'crate-training-adult-dog-dog-training-near-me',
+            'golden-retriever-growth-stages',
             'voice'
         ]);
 
