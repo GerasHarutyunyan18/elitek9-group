@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'understanding-dog-body-language',
             'crate-training-adult-dog-dog-training-near-me',
             'golden-retriever-growth-stages',
+            'boarding-dog-trainers-near-me-dog-training',
             'voice'
         ]);
 
