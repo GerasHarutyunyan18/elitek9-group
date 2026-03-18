@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'crate-training-adult-dog-dog-training-near-me',
             'golden-retriever-growth-stages',
             'boarding-dog-trainers-near-me-dog-training',
+            'dog-training-commands-list-best-puppy-commands',
             'voice'
         ]);
 
