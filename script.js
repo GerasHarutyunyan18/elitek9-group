@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'golden-retriever-growth-stages',
             'boarding-dog-trainers-near-me-dog-training',
             'dog-training-commands-list-best-puppy-commands',
+            'german-shepherd-boarding-training-near-me',
             'voice'
         ]);
 
