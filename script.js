@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'boarding-dog-trainers-near-me-dog-training',
             'dog-training-commands-list-best-puppy-commands',
             'german-shepherd-boarding-training-near-me',
+            'puppy-board-and-train-near-me-dog-training',
             'voice'
         ]);
 
