@@ -2441,6 +2441,242 @@ footer {
     }
 }
 
+/* Consultation page-only optimization: compact layout + faster form flow */
+.consultation-page .page-header {
+    margin-bottom: 20px;
+}
+
+.consultation-page .consultation-section {
+    background: linear-gradient(180deg, #fff5f0 0%, #fffaf7 100%);
+    padding: 36px 0 50px;
+}
+
+.consultation-page .consultation-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.8fr);
+    gap: 22px;
+    align-items: start;
+}
+
+.consultation-page .consultation-content {
+    max-width: none;
+    margin: 0;
+    padding: 34px 32px;
+    border-radius: 24px;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.08);
+}
+
+.consultation-page .consultation-heading {
+    margin-bottom: 22px !important;
+}
+
+.consultation-page .consultation-section .section-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.consultation-page .consultation-section .section-subtitle {
+    max-width: 100%;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.consultation-page .consultation-form {
+    margin-top: 22px;
+}
+
+.consultation-page .form-row {
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+.consultation-page .form-group {
+    margin-bottom: 0;
+}
+
+.consultation-page .form-group-full {
+    margin-bottom: 0;
+}
+
+.consultation-page .form-group label {
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+}
+
+.consultation-page .form-group input,
+.consultation-page .form-group select,
+.consultation-page .form-group textarea {
+    padding: 12px 14px;
+    border-radius: 12px;
+}
+
+.consultation-page #message {
+    min-height: 105px;
+}
+
+.consultation-page .form-submit {
+    margin-top: 18px;
+}
+
+.consultation-page .form-submit .btn-primary {
+    max-width: 100%;
+    font-size: 1rem;
+    padding: 14px 20px;
+}
+
+.consultation-page .privacy-note {
+    margin-top: 12px;
+}
+
+.consultation-page .consultation-sidecard {
+    background: linear-gradient(160deg, #2f2f2f, #1f1f1f);
+    color: rgba(255, 255, 255, 0.92);
+    border-radius: 24px;
+    padding: 28px 24px;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.22);
+    position: sticky;
+    top: 110px;
+}
+
+.consultation-page .consultation-sidecard-kicker {
+    margin: 0 0 10px;
+    color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+.consultation-page .consultation-sidecard h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 1.25;
+    margin-bottom: 16px;
+}
+
+.consultation-page .consultation-quick-points {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.consultation-page .consultation-quick-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.95rem;
+    line-height: 1.45;
+}
+
+.consultation-page .consultation-quick-points i {
+    color: var(--primary-orange);
+    margin-top: 2px;
+}
+
+.consultation-page .consultation-sidecard-cta {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.consultation-page .consultation-sidecard-cta p {
+    margin: 0;
+    font-weight: 600;
+    color: #fff;
+}
+
+.consultation-page .consultation-phone-links {
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.consultation-page .consultation-phone-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 52px;
+    padding: 0 14px;
+    border: none;
+    border-radius: 0;
+    color: #fff;
+    font-weight: 600;
+    line-height: 52px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.consultation-page .consultation-phone-link:first-child {
+    /* background: var(--primary-orange); */
+}
+
+.consultation-page .consultation-phone-link:last-child {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.consultation-page .consultation-phone-link+.consultation-phone-link {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.consultation-page .consultation-phone-link:hover {
+    background: #ff8a36;
+    color: #fff;
+}
+
+@media (max-width: 992px) {
+    .consultation-page .consultation-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .consultation-page .consultation-sidecard {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .consultation-page .consultation-section {
+        padding: 20px 0 32px;
+    }
+
+    .consultation-page .consultation-content {
+        padding: 22px 16px;
+        border-radius: 18px;
+    }
+
+    .consultation-page .consultation-section .section-title {
+        font-size: 1.6rem;
+    }
+
+    .consultation-page .consultation-form {
+        margin-top: 16px;
+    }
+
+    .consultation-page .form-row {
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+
+    .consultation-page #message {
+        min-height: 88px;
+    }
+
+    .consultation-page .consultation-sidecard {
+        padding: 20px 16px;
+        border-radius: 18px;
+    }
+}
+
 /* Button Shine Effect */
 .btn-primary {
     position: relative;

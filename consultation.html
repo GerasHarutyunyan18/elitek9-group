@@ -164,7 +164,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </script>
 </head>
 
-<body>
+<body class="consultation-page">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PWPGRQ97"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -255,70 +255,69 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </header>
 
     <!-- Consultation Form Section -->
-    <section class="consultation-section section-padding bg-light">
+        <section class="consultation-section section-padding bg-light">
         <div class="container">
-            <div class="consultation-content reveal reveal-fade-up">
-                <div class="text-center mb-5">
-                    <h2 class="section-title">Get a Free Behavior Consult</h2>
-                    <p class="section-subtitle">Tell us a little about your dog, and we’ll contact you to help you take
-                        the next step toward calm, trusted behavior.</p>
-                </div>
-
-                <form id="consultation-form" class="consultation-form" action="https://formspree.io/f/mgolzjoj" method="POST">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="first-name">Full Name *</label>
-                            <input type="text" id="first-name" name="first-name" placeholder="Enter your first name"
-                                required>
-                        </div>
-                        <div class="form-group">
-                            <label for="dog-breed">Dog Breed *</label>
-                            <input type="text" id="dog-breed" name="dog-breed" placeholder="What breed is your dog?"
-                                required>
-                        </div>
-
+            <div class="consultation-layout reveal reveal-fade-up">
+                <div class="consultation-content">
+                    <div class="text-center mb-5 consultation-heading">
+                        <h2 class="section-title">Get a Free Behavior Consult</h2>
+                        <p class="section-subtitle">Tell us a little about your dog, and we'll contact you to help you take
+                            the next step toward calm, trusted behavior.</p>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" placeholder="Enter your email"
-                                required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="service">Which service are you interested in? *</label>
-                            <select id="service" name="service" required>
-                                <option value="" disabled selected>Select a service</option>
-                                <option value="behavior-modification">Behavior Modification</option>
-                                <option value="obedience-training">Obedience Training</option>
-                                <option value="service-dog-training">Service Dog Training</option>
-                                <option value="puppy-development">Puppy Development</option>
-                                <option value="personal-protection">Personal Protection</option>
-                                <option value="board-and-train">Board & Train</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="location">Choose Your Location *</label>
-
-                            <div class="autocomplete-wrapper">
-                                <input type="text" id="location" name="location"
-                                    placeholder="Start typing your neighborhood (e.g. North Hollywood)" required
-                                    autocomplete="off" />
-
-                                <div id="autocomplete-list" class="autocomplete-list"></div>
+                    <form id="consultation-form" class="consultation-form" action="https://formspree.io/f/mgolzjoj" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">Full Name *</label>
+                                <input type="text" id="first-name" name="first-name" placeholder="Enter your full name"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dog-breed">Dog Breed *</label>
+                                <input type="text" id="dog-breed" name="dog-breed" placeholder="What breed is your dog?"
+                                    required>
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" placeholder="Enter your email"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="service">Which service are you interested in? *</label>
+                                <select id="service" name="service" required>
+                                    <option value="" disabled selected>Select a service</option>
+                                    <option value="behavior-modification">Behavior Modification</option>
+                                    <option value="obedience-training">Obedience Training</option>
+                                    <option value="service-dog-training">Service Dog Training</option>
+                                    <option value="puppy-development">Puppy Development</option>
+                                    <option value="personal-protection">Personal Protection</option>
+                                    <option value="board-and-train">Board & Train</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Choose Your Location *</label>
+                                <div class="autocomplete-wrapper">
+                                    <input type="text" id="location" name="location"
+                                        placeholder="Start typing your neighborhood (e.g. North Hollywood)" required
+                                        autocomplete="off" />
+                                    <div id="autocomplete-list" class="autocomplete-list"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-group-full">
                             <label for="message">How can we help you?</label>
-                            <textarea id="message" name="message" rows="4"
+                            <textarea id="message" name="message" rows="3"
                                 placeholder="Tell us about your dog's behavior and your goals..."></textarea>
                         </div>
 
@@ -327,7 +326,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <p class="privacy-note">Your information is 100% private. No spam.</p>
                             <p id="consultation-form-status" class="privacy-note" aria-live="polite"></p>
                         </div>
-                </form>
+                    </form>
+                </div>
+
+                <aside class="consultation-sidecard" aria-label="Consultation process and contact">
+                    <p class="consultation-sidecard-kicker">Fast Process</p>
+                    <h3>Get Your Plan in 3 Steps</h3>
+                    <ul class="consultation-quick-points">
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i>Submit the short form.</li>
+                        <li><i class="fas fa-phone-volume" aria-hidden="true"></i>We call you back quickly.</li>
+                        <li><i class="fas fa-dog" aria-hidden="true"></i>You get a custom training roadmap.</li>
+                    </ul>
+                    <div class="consultation-sidecard-cta">
+                        <p>Need immediate help?</p>
+                        <div class="consultation-phone-links">
+                            <a href="tel:+18183573797" class="consultation-phone-link">Call 818-357-3797</a>
+                            <a href="tel:+14244246444" class="consultation-phone-link">Call 424-424-6444</a>
+                        </div>
+                    </div>
+                </aside>
             </div>
         </div>
     </section>
@@ -532,3 +549,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </body>
 
 </html>
+
