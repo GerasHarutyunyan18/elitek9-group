@@ -4258,6 +4258,56 @@ body {
     /* Tighter list */
 }
 
+@media (min-width: 320px) and (max-width: 480px) {
+    .footer-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-areas:
+            "brand brand"
+            "nav locations";
+        gap: 26px 16px;
+        align-items: start;
+    }
+
+    .footer-brand {
+        grid-area: brand;
+    }
+
+    .footer-nav {
+        grid-area: nav;
+    }
+
+    .footer-locations {
+        grid-area: locations;
+    }
+
+    .footer-nav,
+    .footer-locations {
+        width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .footer-nav ul,
+    .footer-locations .locations-grid {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-nav ul li a,
+    .location-col a {
+        font-size: 0.82rem;
+        line-height: 1.4;
+    }
+
+    .location-col {
+        align-items: center;
+    }
+
+    .footer-locations .location-col span {
+        display: none !important;
+    }
+}
+
 /* Quote Section */
 .quote-text-main {
     font-size: 1.8rem;
