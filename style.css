@@ -3598,6 +3598,8 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 25px;
+    max-width: 1320px;
+    overflow: visible;
 }
 
 /* Logo */
@@ -3707,8 +3709,8 @@ body {
 }
 
 .social-icons-nav a {
-    width: 35px;
-    height: 35px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     background: var(--primary-orange);
     display: flex;
@@ -3717,12 +3719,22 @@ body {
     color: white;
     font-size: 0.85rem;
     transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 }
 
 .social-icons-nav a:hover {
     background: var(--dark-red);
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(249, 112, 15, 0.4);
+}
+
+.social-icons-nav a i {
+    line-height: 1;
+}
+
+.social-icons-nav a[aria-label="Facebook"] i {
+    transform: translateX(0.5px);
 }
 
 /* Phone Number Wrapper */
@@ -3760,6 +3772,41 @@ body {
     opacity: 0.9;
     text-transform: uppercase;
     margin-left: 2px;
+}
+
+/* Keep header balanced on medium-large desktops where right side can clip */
+@media (max-width: 1450px) and (min-width: 1201px) {
+    .navbar-container {
+        gap: 16px;
+        padding: 0 15px;
+    }
+
+    .nav-links-new {
+        gap: 18px;
+    }
+
+    .navbar-right {
+        gap: 10px;
+    }
+
+    .btn-nav-cta {
+        padding: 7px 12px !important;
+        font-size: 0.75rem !important;
+    }
+
+    .social-icons-nav {
+        gap: 8px;
+    }
+
+    .phone-number-nav {
+        padding: 4px 10px;
+        gap: 6px;
+        font-size: 0.8rem;
+    }
+
+    .phone-number-nav span {
+        display: none;
+    }
 }
 
 .phone-number-nav:hover {
