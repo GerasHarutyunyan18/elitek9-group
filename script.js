@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'understanding-dog-body-language',
             'crate-training-adult-dog-dog-training-near-me',
             'golden-retriever-growth-stages',
+            'dog-training-near-me-guide-2023',
             'boarding-dog-trainers-near-me-dog-training',
             'dog-training-commands-list-best-puppy-commands',
             'german-shepherd-boarding-training-near-me',
