@@ -392,6 +392,65 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div id="chat"></div>
     </div>
+    <script>
+        (function () {
+            const consultationSuccessStorageKey = "ek9_pending_consultation_submit";
+            const maxSubmissionAgeMs = 1000 * 60 * 30;
+            const isLocalDevHost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+
+            if (isLocalDevHost) {
+                return;
+            }
+
+            function trackDataLayerEvent(eventName, params) {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    event: eventName,
+                    ...(params || {})
+                });
+            }
+
+            const pageLocation = "https://elitek9group.com/thank-you";
+
+            // Manual page_view fallback for this route (important for SPA/JS navigation edge cases).
+            trackDataLayerEvent("page_view", {
+                page_location: pageLocation,
+                page_path: "/thank-you",
+                page_title: document.title
+            });
+
+            let pendingSubmission = null;
+            try {
+                const savedSubmission = window.sessionStorage.getItem(consultationSuccessStorageKey);
+                pendingSubmission = savedSubmission ? JSON.parse(savedSubmission) : null;
+            } catch (error) {
+                pendingSubmission = null;
+            }
+
+            if (!pendingSubmission || pendingSubmission.form_name !== "consultation") {
+                return;
+            }
+
+            const isFreshSubmission =
+                typeof pendingSubmission.created_at === "number" &&
+                (Date.now() - pendingSubmission.created_at) <= maxSubmissionAgeMs;
+
+            try {
+                if (isFreshSubmission) {
+                    trackDataLayerEvent("consultation_form_submit", {
+                        form_name: "consultation",
+                        page_location: pageLocation
+                    });
+                }
+            } finally {
+                try {
+                    window.sessionStorage.removeItem(consultationSuccessStorageKey);
+                } catch (error) {
+                    // Ignore storage errors to avoid blocking the page.
+                }
+            }
+        })();
+    </script>
     <script src="voice-ai.js"></script>
     <script src="script.js"></script>
 </body>

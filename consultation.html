@@ -504,6 +504,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         const consultationForm = document.getElementById("consultation-form");
         const consultationFormStatus = document.getElementById("consultation-form-status");
+        const consultationSuccessStorageKey = "ek9_pending_consultation_submit";
+
+        function trackDataLayerEvent(eventName, params) {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                event: eventName,
+                ...(params || {})
+            });
+        }
+
+        function storeSuccessfulConsultationSubmission() {
+            try {
+                window.sessionStorage.setItem(consultationSuccessStorageKey, JSON.stringify({
+                    form_name: "consultation",
+                    page_location: "https://elitek9group.com/thank-you",
+                    created_at: Date.now()
+                }));
+            } catch (error) {
+                // Ignore storage errors; form flow must continue even in strict privacy modes.
+            }
+        }
 
         if (consultationForm) {
             consultationForm.addEventListener("submit", async (event) => {
@@ -530,9 +551,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         throw new Error("Form submit failed");
                     }
 
-                    window.dataLayer = window.dataLayer || [];
-                    window.dataLayer.push({
-                        event: "lead_form_submit",
+                    storeSuccessfulConsultationSubmission();
+
+                    // Keep existing event for backward compatibility in GTM.
+                    trackDataLayerEvent("lead_form_submit", {
                         form_name: "consultation"
                     });
 
