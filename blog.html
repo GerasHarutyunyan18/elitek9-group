@@ -772,6 +772,27 @@
     </div>
     <script src="voice-ai.js"></script>
     <script src="script.js"></script>
+<script>
+document.addEventListener('click', function(e) {
+  const link = e.target.closest('a[href^="tel:"]');
+  if (!link) return;
+
+  const phone = link.getAttribute('href').replace('tel:', '');
+
+  let location = 'unknown';
+
+  if (link.closest('.navbar')) location = 'header';
+  if (link.closest('.footer')) location = 'footer';
+  if (link.closest('.modal-phone')) location = 'modal';
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'phone_click',
+    phone_number: phone,
+    location: location
+  });
+});
+</script>
 </body>
 
 </html>
