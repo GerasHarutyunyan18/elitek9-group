@@ -502,51 +502,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
         });
 
-        const consultationForm = document.getElementById("consultation-form");
-        const consultationFormStatus = document.getElementById("consultation-form-status");
+      const consultationForm = document.getElementById("consultation-form");
+const consultationFormStatus = document.getElementById("consultation-form-status");
 
-        if (consultationForm) {
-            consultationForm.addEventListener("submit", async (event) => {
-                event.preventDefault();
+if (consultationForm) {
+    consultationForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
 
-                const submitButton = consultationForm.querySelector('button[type="submit"]');
-                if (submitButton) {
-                    submitButton.disabled = true;
-                }
-                if (consultationFormStatus) {
-                    consultationFormStatus.textContent = "Sending...";
-                }
+        const submitButton = consultationForm.querySelector('button[type="submit"]');
+        if (submitButton) submitButton.disabled = true;
+        if (consultationFormStatus) consultationFormStatus.textContent = "Sending...";
 
-                try {
-                    const response = await fetch(consultationForm.action, {
-                        method: "POST",
-                        body: new FormData(consultationForm),
-                        headers: {
-                            "Accept": "application/json"
-                        }
-                    });
-
-                    if (!response.ok) {
-                        throw new Error("Form submit failed");
-                    }
-
-                    window.dataLayer = window.dataLayer || [];
-                    window.dataLayer.push({
-                        event: "lead_form_submit",
-                        form_name: "consultation"
-                    });
-
-                    window.location.href = "/thank-you";
-                } catch (error) {
-                    if (consultationFormStatus) {
-                        consultationFormStatus.textContent = "Something went wrong. Please try again.";
-                    }
-                    if (submitButton) {
-                        submitButton.disabled = false;
-                    }
+        try {
+            const response = await fetch(consultationForm.action, {
+                method: "POST",
+                body: new FormData(consultationForm),
+                headers: {
+                    "Accept": "application/json"
                 }
             });
+
+            if (!response.ok) {
+                throw new Error("Form submit failed");
+            }
+
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                event: "lead_form_submit",
+                form_name: "consultation"
+            });
+
+            setTimeout(() => {
+                window.location.href = "/thank-you";
+            }, 1000);
+
+        } catch (error) {
+            if (consultationFormStatus) {
+                consultationFormStatus.textContent = "Something went wrong. Please try again.";
+            }
+            if (submitButton) {
+                submitButton.disabled = false;
+            }
         }
+    });
+}
     </script>
 </body>
 
