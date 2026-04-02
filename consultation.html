@@ -262,6 +262,7 @@
                     </div>
 
                     <form id="consultation-form" class="consultation-form" action="https://formspree.io/f/mgolzjoj" method="POST">
+                        <input type="hidden" name="_next" value="https://elitek9group.com/thank-you">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="first-name">Full Name *</label>
@@ -496,52 +497,19 @@
             }
         });
 
-      const consultationForm = document.getElementById("consultation-form");
-const consultationFormStatus = document.getElementById("consultation-form-status");
+        const consultationForm = document.getElementById("consultation-form");
+        const consultationFormStatus = document.getElementById("consultation-form-status");
 
-if (consultationForm) {
-    consultationForm.addEventListener("submit", async (event) => {
-        event.preventDefault();
+        if (consultationForm) {
+            consultationForm.addEventListener("submit", () => {
+                if (!consultationForm.checkValidity()) return;
 
-        const submitButton = consultationForm.querySelector('button[type="submit"]');
-        if (submitButton) submitButton.disabled = true;
-        if (consultationFormStatus) consultationFormStatus.textContent = "Sending...";
-
-        try {
-            const response = await fetch(consultationForm.action, {
-                method: "POST",
-                body: new FormData(consultationForm),
-                headers: {
-                    "Accept": "application/json"
-                }
+                const submitButton = consultationForm.querySelector('button[type="submit"]');
+                if (submitButton) submitButton.disabled = true;
+                if (consultationFormStatus) consultationFormStatus.textContent = "Sending...";
             });
-
-            if (!response.ok) {
-                throw new Error("Form submit failed");
-            }
-
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-                event: "lead_form_submit",
-                form_name: "consultation"
-            });
-
-            setTimeout(() => {
-                window.location.href = "/thank-you";
-            }, 1000);
-
-        } catch (error) {
-            if (consultationFormStatus) {
-                consultationFormStatus.textContent = "Something went wrong. Please try again.";
-            }
-            if (submitButton) {
-                submitButton.disabled = false;
-            }
         }
-    });
-}
     </script>
 </body>
 
 </html>
-
