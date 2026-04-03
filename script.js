@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'dog-training-commands-list-best-puppy-commands',
             'german-shepherd-boarding-training-near-me',
             'puppy-board-and-train-near-me-dog-training',
+            'professional-dog-training-burbank',
             'voice'
         ]);
 
@@ -760,6 +761,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('load', applyGetInTouchDeepLink);
     window.addEventListener('hashchange', applyGetInTouchDeepLink);
 });
+
 
 
 
