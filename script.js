@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'puppy-board-and-train-near-me-dog-training',
             'professional-dog-training-burbank',
             'professional-dog-training-service-dog-training',
+            'how-to-catch-a-fake-service-dog-fraud-report',
             'voice'
         ]);
 
