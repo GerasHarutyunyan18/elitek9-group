@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'german-shepherd-boarding-training-near-me',
             'puppy-board-and-train-near-me-dog-training',
             'professional-dog-training-burbank',
+            'professional-dog-training-service-dog-training',
             'voice'
         ]);
 
