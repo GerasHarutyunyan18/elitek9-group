@@ -159,6 +159,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- Blog Grid: show latest 6 cards, reveal the rest on demand ---
+    const BLOG_VISIBLE_COUNT = 6;
+    document.querySelectorAll('.blog-grid').forEach((blogGrid) => {
+        const blogCards = Array.from(blogGrid.querySelectorAll('.blog-card'));
+        if (blogCards.length <= BLOG_VISIBLE_COUNT) return;
+
+        blogCards.slice(BLOG_VISIBLE_COUNT).forEach((card) => {
+            card.style.display = 'none';
+        });
+
+        const showMoreWrap = document.createElement('div');
+        showMoreWrap.style.textAlign = 'center';
+        showMoreWrap.style.marginTop = '28px';
+        showMoreWrap.style.marginBottom = '6px';
+
+        const showMoreBtn = document.createElement('button');
+        showMoreBtn.type = 'button';
+        showMoreBtn.className = 'btn-primary btn-pulse-orange';
+        showMoreBtn.textContent = 'Show More';
+        showMoreBtn.style.padding = '14px 30px';
+        showMoreBtn.style.border = 'none';
+        showMoreBtn.style.cursor = 'pointer';
+
+        showMoreBtn.addEventListener('click', () => {
+            blogCards.slice(BLOG_VISIBLE_COUNT).forEach((card) => {
+                card.style.display = '';
+            });
+            showMoreWrap.remove();
+        });
+
+        showMoreWrap.appendChild(showMoreBtn);
+        blogGrid.insertAdjacentElement('afterend', showMoreWrap);
+    });
+
     // --- Navbar Scroll Behavior ---
     const navbar = document.querySelector('.navbar-new');
     if (navbar) {
