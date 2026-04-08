@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'professional-dog-training-burbank',
             'professional-dog-training-service-dog-training',
             'how-to-catch-a-fake-service-dog-fraud-report',
+            'professional-dog-training-west-hollywood',
             'voice'
         ]);
 
