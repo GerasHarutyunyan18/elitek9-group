@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'how-to-catch-a-fake-service-dog-fraud-report',
             'professional-dog-training-west-hollywood',
             'how-to-get-service-dog-free-in-pa-arizona',
+            'how-to-crate-train-an-adult-dog',
             'voice'
         ]);
 
