@@ -662,18 +662,25 @@ document.addEventListener('DOMContentLoaded', () => {
         "18183573797": "assets/images/Voskan-img-person-112.jpg",
         "14244246444": "assets/images/Simon-img-person-112.jpg"
     };
+    const trainerAvatarByName = {
+        "voskan": "assets/images/Voskan-img-person-112.jpg",
+        "simon": "assets/images/Simon-img-person-112.jpg"
+    };
 
     document.querySelectorAll('.trainer-call-btn').forEach((trainerBtn) => {
         if (trainerBtn.querySelector('.trainer-avatar')) return;
 
         const href = trainerBtn.getAttribute('href') || '';
         const digitsOnly = href.replace(/\D/g, '');
-        const avatarSrc = trainerAvatarByPhone[digitsOnly];
         const trainerInfo = trainerBtn.querySelector('.trainer-info');
 
-        if (!avatarSrc || !trainerInfo) return;
+        if (!trainerInfo) return;
 
         const trainerName = (trainerInfo.querySelector('.trainer-name')?.textContent || 'Trainer').trim();
+        const avatarSrc = trainerAvatarByName[trainerName.toLowerCase()] || trainerAvatarByPhone[digitsOnly];
+
+        if (!avatarSrc) return;
+
         const avatarImg = document.createElement('img');
         avatarImg.className = 'trainer-avatar';
         avatarImg.src = avatarSrc;
