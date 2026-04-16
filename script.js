@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'professional-dog-training-west-hollywood',
             'how-to-get-service-dog-free-in-pa-arizona',
             'how-to-crate-train-an-adult-dog',
+            'professional-dog-training-beverly-hills',
             'voice'
         ]);
 
