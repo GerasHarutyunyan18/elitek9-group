@@ -661,7 +661,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Trainer Avatars in Phone Modal ---
     const trainerAvatarByPhone = {
         "18183573797": "assets/images/Voskan-img-person-112.jpg",
-        "14244246444": "assets/images/Simon-img-person-112.jpg"
+        "18188028803": "assets/images/Simon-img-person-112.jpg"
     };
     const trainerAvatarByName = {
         "voskan": "assets/images/Voskan-img-person-112.jpg",

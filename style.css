@@ -3744,6 +3744,12 @@ body {
     gap: 4px;
 }
 
+/* Keep phone digits vertically aligned across all call links */
+a[href^="tel:"] {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
 /* Phone Number */
 .phone-number-nav {
     display: flex;
